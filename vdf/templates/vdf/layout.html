@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">     
     <meta name="csrf-token" content="E4PL4GpqcuX9oLPDH7EtiIgFHQYJt2v6zTukfOAv">
     <link href="../static/vdf/allstyle.css" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'vdf/img/vdflogo.png' %}">
     {% block head %}
     {% endblock %}
     <script>
@@ -26,13 +27,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link " href="#">Các chiến dịch</a>
+                            <a class="nav-link " href="{% url 'explore' %}">Các chiến dịch</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tin tức</a>
+                            <a class="nav-link" href="{% url 'articles' %}">Tin tức</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Về chúng tôi</a>
+                            <a class="nav-link" href="{% url 'about' %}">Về chúng tôi</a>
                         </li>
                     </ul>
                     {% block session%}
@@ -121,4 +122,6 @@
             </div>
         </footer>     
     </div>
+    {% block script %}
+    {% endblock %}
 </body>

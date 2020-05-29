@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block head%}
+    <title>Vietnam Donation Foundation</title>    
     <style>
         .carousel-control-prev {
             width: 28px;
@@ -44,10 +45,10 @@
 {% block session %}
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link font-weight-bold text-primary" href="#">Tạo tài khoản</a>
+            <a class="nav-link font-weight-bold text-primary" href="{% url 'register' %}">Tạo tài khoản</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link font-weight-bold" href="#">Đăng nhập</a>
+            <a class="nav-link font-weight-bold" href="{% static 'vdf/login.html'%}">Đăng nhập</a>
         </li>
     </ul>
 {% endblock %}
