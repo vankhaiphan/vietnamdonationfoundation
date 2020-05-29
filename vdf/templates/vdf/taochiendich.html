@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">     <meta name="csrf-token" content="E4PL4GpqcuX9oLPDH7EtiIgFHQYJt2v6zTukfOAv">
+    <title>Kindmate - Nền tảng gây quỹ dễ dàng nhanh chóng</title>
+    <meta content="kindmate, wakeitup, gay quy, crowdfunding, tu thien, gay quy" name="keywords" />
+    <meta content="Kindmate giúp các cá nhân và tổ chức tự tạo một trang web gây quỹ cộng đồng chuyên nghiệp." name="description"
+    />
+    <meta content="Kindmate - Nền tảng gây quỹ dễ dàng nhanh chóng" property="og:title" />
+    <meta content="Kindmate giúp các cá nhân và tổ chức tự tạo một trang web gây quỹ cộng đồng chuyên nghiệp." property="og:description"
+    />
+    <meta content="Kindmate" property="og:site_name" />
+    <meta content="https://kindmate.net/ images/thumb.png ?v=2.0.6" property="og:image" />     <link href="https://kindmate.net/css/app.css?v=2.0.6" rel="stylesheet">
+            <link rel="stylesheet" href="/bassets/plugins/toastr/toastr.min.css">
+    <script>
+        var IMG_API_URL = 'https://kindmate.net/app/campaign/image';
+    </script>
+</head>
+
+<body>
+    <div id="app">
+         <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-kindmate">
+    <div class="container">
+        <a class="navbar-brand" href="https://kindmate.net">
+            <img class="logo-img" src="https://kindmate.net/svg/logo.svg" alt="Kindmate">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link " href="https://kindmate.net/explore">Các chiến dịch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://kindmate.net/articles">Tin tức</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://kindmate.net/about">Về chúng tôi</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+
+                                <!-- Authentication Links -->
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold text-primary" href="https://kindmate.net/app/campaign/create"> Tạo
+                        chiến dịch</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" v-pre>
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                            id="Capa_1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 49.654 49.654"
+                            style="enable-background:new 0 0 49.654 49.654; margin-top: -3px;" xml:space="preserve">
+                            <g>
+                                <g>
+                                    <g>
+                                        <path
+                                            d="M24.827,0C11.138,0,0.001,11.138,0.001,24.827c0,13.689,11.137,24.827,24.826,24.827    c13.688,0,24.826-11.138,24.826-24.827C49.653,11.138,38.517,0,24.827,0z M39.142,38.51c0-0.574,0-0.979,0-0.979    c0-3.386-3.912-4.621-6.006-5.517c-0.758-0.323-2.187-1.011-3.653-1.728c-0.495-0.242-0.941-0.887-0.997-1.438l-0.162-1.604    c1.122-1.045,2.133-2.5,2.304-4.122h0.253c0.398,0,0.773-0.298,0.832-0.663l0.397-2.453c0.053-0.524-0.442-0.842-0.843-0.842    c0.011-0.052,0.02-0.105,0.025-0.149c0.051-0.295,0.082-0.58,0.102-0.857c0.025-0.223,0.045-0.454,0.056-0.693    c0.042-1.158-0.154-2.171-0.479-2.738c-0.33-0.793-0.83-1.563-1.526-2.223c-1.939-1.836-4.188-2.551-6.106-1.075    c-1.306-0.226-2.858,0.371-3.979,1.684c-0.612,0.717-0.993,1.537-1.156,2.344c-0.146,0.503-0.243,1.112-0.267,1.771    c-0.026,0.733,0.046,1.404,0.181,1.947c-0.382,0.024-0.764,0.338-0.764,0.833l0.396,2.453c0.059,0.365,0.434,0.663,0.832,0.663    h0.227c0.36,1.754,1.292,3.194,2.323,4.198l-0.156,1.551c-0.056,0.55-0.502,1.193-0.998,1.438    c-1.418,0.692-2.815,1.358-3.651,1.703c-1.97,0.812-6.006,2.131-6.006,5.517v0.766c-3.288-3.541-5.316-8.266-5.316-13.467    c0-10.932,8.894-19.826,19.826-19.826c10.933,0,19.826,8.894,19.826,19.826C44.653,30.133,42.548,34.946,39.142,38.51z"
+                                            data-original="#000000" class="active-path" data-old_color="#000000"
+                                            fill="#4A65D2" />
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        <strong class="ml-1">Truong Mai Huy</strong>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="https://kindmate.net/admin/campaign">
+                            <i class="zmdi mr-1 zmdi-view-dashboard"></i>
+                            Trang quản trị
+                        </a>
+                        <a class="dropdown-item" href="https://kindmate.net/logout" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                            <i class="zmdi mr-1 zmdi-square-down"></i>
+
+                            Logout
+                        </a>
+                        <form id="logout-form" action="https://kindmate.net/logout" method="POST" style="display: none;">
+                            <input type="hidden" name="_token" value="E4PL4GpqcuX9oLPDH7EtiIgFHQYJt2v6zTukfOAv">                        </form>
+                    </div>
+                </li>
+                            </ul>
+        </div>
+    </div>
+</nav>
+         <main class="py-5">
+            <section class="my-2 container">
+    <h1 class="mb-4">Tạo chiến dịch mới</h1>
+    <form method="POST" action="https://kindmate.net/app/campaign" accept-charset="UTF-8" id="campaign-form" enctype="multipart/form-data"><input name="_token" type="hidden" value="E4PL4GpqcuX9oLPDH7EtiIgFHQYJt2v6zTukfOAv">
+        <div class="alert alert-danger" id="error-box" hidden>
+    <ul class="list-unstyled mb-0">
+    </ul>
+</div>
+<div class="row">
+    <div class="col-md-8 order-2 order-md-1">
+        <div class="embed-responsive embed-responsive-16by9 image-file-com">
+            <div class="close">
+                &times;
+            </div>
+            <div class="embed-responsive-item d-flex justify-content-center align-items-center text-center" >
+                <label for="campaign-cover">
+                    <i class="zmdi zmdi-camera zmdi-hc-3x"></i>
+                    <div>Ảnh đại diện <br>850 x 480 pixel</div>
+                </label> <input accept="image/*" hidden id="campaign-cover" name="cover" type="file">
+            </div>
+        </div>
+
+        <div class="form-group mt-3 mb-5">
+            <label for="campaign-embed">Mã nhúng video (không bắt buộc)</label> <textarea id="campaign-description" class="form-control" placeholder="Hỗ trợ mã nhúng có dạng &lt;iframe src=&#039;https://www.youtube.com/embed/8Qr9WW2bLAQ&#039; frameborder=&#039;0&#039; allow=&#039;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#039; allowfullscreen&gt;&lt;/iframe&gt;" rows="3" maxlength="1000" name="videoEmbedCode" cols="50"></textarea>
+            <small id="campaign-embed-help" class="form-text text-muted"><span class="text-primary font-weight-bold">Tips:</span> Để thực hiện việc lấy mã nhúng bạo vào video Youtube bạn chọn > chọn Chia sẻ > Embeb > Copy mã Nhúng. Hỗ trợ cả mã nhúng của Facebook, Vimeo... và các trang tương tự.</small>
+        </div>
+        <div class="form-group mt-4">
+            <h5>Nội dung chiến dịch*</h5>
+            <div id="editor" class="app-editor"></div>
+        </div>
+        <div class="d-flex justify-content-between mt-4">
+            <div class="publish-wrap">
+                <button type="submit" class="btn btn-primary">Lưu chiến dịch</button> 
+            </div>
+            <button type="button" class="btn btn-danger" onclick="window.history.back();">Hủy bỏ</button>
+        </div>
+    </div>
+    <div class="col-md-4 order-1 order-md-2">
+        <div class="form-group">
+            <label for="campaign-name">Tên chiến dịch*</label> <input id="campaign-name" required class="form-control" placeholder="Tên chiến dịch" maxlength="255" name="name" type="text">
+        </div>
+        <div class="form-group">
+            <label for="campaign-description">Mô tả ngắn*</label> <textarea id="campaign-description" required class="form-control" placeholder="Mô tả ngắn" rows="3" maxlength="255" name="description" cols="50"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="campaign-money">Số tiền mong muốn*</label>
+            <div class="input-group">
+                <input id="campaign-money" required class="form-control" placeholder="Số tiền mong muốn" maxlength="15" name="money" type="number">
+                <div class="input-group-append">
+                    <span class="input-group-text">VNĐ</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="campaign-deadline">Ngày hết hạn*</label>
+            <div class="input-group single-date">
+                <input id="campaign-deadline" required class="form-control" placeholder="Ngày hết hạn" maxlength="255" name="deadline" type="text">
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        <i class="zmdi zmdi-calendar-alt zmdi-hc-lg"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group mt-5">
+            <h6 class="text-dark" >Chọn thông tin tổ chức hoặc tạo tổ chức mới (không bắt buộc)
+            </h6>
+            <div class="row no-gutters">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="select-organization">Chọn tổ chức</label>
+                        <select name="organization_id" id="select-organization" class="form-control">
+                            <option value="" selected >Chọn tổ chức</option>
+                                                    </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                        Thêm tổ chức mới
+                                        </button>
+
+            </div>
+
+            <!-- Modal -->
+
+        </div>
+
+        <div class="py-3">
+            <h6 class="text-dark" data-toggle="collapse" href="#collapseActionButton" role="button" aria-expanded="false" aria-controls="collapseActionButton">
+                Chỉnh sửa nút ủng hộ (không bắt buộc) <i class="zmdi zmdi-chevron-down zmdi -hc-lg"></i>
+            </h6>
+            <div class="collapse" id="collapseActionButton">
+                <div class="form-group">
+                    <label for="campaign-action-text">Tên nút</label> <select id="campaign-action-text" class="form-control" name="action_label"><option value="Ủng hộ ngay">Ủng hộ ngay</option><option value="Liên hệ ngay">Liên hệ ngay</option><option value="Gửi thông tin">Gửi thông tin</option><option value="Đến trang ủng hộ">Đến trang ủng hộ</option><option value="Tôi muốn ủng hộ">Tôi muốn ủng hộ</option></select>
+                </div>
+                <div class="form-group">
+                    <label for="campaign-action-link">Đường dẫn</label> <input id="campaign-action-link" class="form-control" placeholder="Đường dẫn nút ủng hộ: http://your-custom-donate-link" maxlength="255" name="action_link" type="text">
+                    <small id="campaign-action-link-help" class="form-text text-muted"><span class="text-danger font-weight-bold">Chú ý:</span> Thao tác này sẽ dẫn người dùng đến một trang khác không phải trang ủng hộ của Kindmate. Hãy chắc chắn bạn hiểu về thao tác này.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </form>
+<form method="POST" action="https://kindmate.net/admin/organization" accept-charset="UTF-8" id="form-organization" enctype="multipart/form-data"><input name="_token" type="hidden" value="E4PL4GpqcuX9oLPDH7EtiIgFHQYJt2v6zTukfOAv">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tạo mới tổ chức</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row no-gutters" id="organization">
+    <div class="col-4">
+        <div class="embed-responsive embed-responsive-1by1 image-file-com mt-2">
+            <div class="close">
+                &times;
+            </div>
+            <div class="embed-responsive-item d-flex justify-content-center align-items-center text-center" >
+                <label for="campaign-org-cover">
+                    <i class="zmdi zmdi-camera zmdi-hc-2x"></i>
+                </label> <input accept="image/*" hidden id="campaign-org-cover" name="avatar" type="file">
+            </div>
+        </div>
+        <small id="campaign-org-cover-help" class="form-text text-muted text-center">
+            Logo tổ chức <br> 100 x 100 pixel
+        </small>
+    </div>
+    <div class="col-8 pl-3">
+        <div class="form-group">
+            <label for="campaign-org-name">Tên tổ chức</label> <input id="campaign-org-name" class="form-control" placeholder="Tên tổ chức" maxlength="255" name="name" type="text">
+        </div>
+        <div class="form-group">
+            <label for="campaign-org-name">Tên viết tắt</label> <input id="campaign-org-short-name" class="form-control" placeholder="Tên viết tắt" maxlength="255" name="short_name" type="text">
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group">
+            <label for="campaign-description">Mô tả ngắn</label> <textarea id="organization_introduction" class="form-control" placeholder="Mô tả ngắn" rows="3" maxlength="255" name="introduction" cols="50"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="campaign-org-name">Địa chỉ</label> <input id="campaign-org-address" class="form-control" placeholder="Địa chỉ" maxlength="255" name="address" type="text">
+        </div>
+        <div class="form-group">
+            <label for="campaign-org-name">Email</label> <input id="campaign-org-email" class="form-control" placeholder="Email" maxlength="255" name="email" type="text">
+        </div>
+        <div class="form-group">
+            <label for="campaign-org-link">Đường link facebook hoặc messenger</label> <input id="messenger-link" class="form-control" placeholder="Facebook/Messenger" maxlength="255" name="facebook" type="text">
+        </div>
+        <div class="form-group">
+            <label for="campaign-org-link">Số điện thoại</label>
+            <input id="organization_phone" class="form-control" placeholder="Số điện thoai" maxlength="15" name="phone" type="number">
+        </div>
+
+    </div>
+</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="submit" class="btn btn-primary">Tạo mới tổ chức</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</form>
+</section>
+        </main>
+
+         <footer class="footer">
+    <div class="container py-3">
+        <div class="row">
+            <div class="col-md-5 mt-2">
+                <img class="logo-img" height="30" src="https://kindmate.net/svg/logo.svg" alt="Kindmate">
+                <ul class="list-unstyled mt-4">
+                    <li class="my-1">
+                        <i class="zmdi zmdi-pin zmdi-hc-lg mr-2"></i>
+                        <span>P 11A1 toà Golden West, số 2 Lê Văn Thiêm, Thanh Xuân, Hà Nội</span>
+                    </li>
+                    <li class="my-1">
+                        <i class="zmdi zmdi-phone zmdi-hc-lg mr-2"></i>
+                        <span>0773371909 (Mr. Minh) - 0347228829 (Ms Hải)</span>
+                    </li>
+                    <li class="my-1">
+                        <i class="zmdi zmdi-email zmdi-hc-lg mr-2"></i>
+                        <span>ungho@wakeitup.net</span>
+                    </li>
+                </ul>
+                <ul class="list-unstyled mt-4 d-flex">
+
+                </ul>
+            </div>
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-sm-4 mt-2">
+                        <h5 class="text-primary">VỀ CHÚNG TÔI</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="https://kindmate.net/about">Giới thiệu</a>
+                            </li>
+                            <li>
+                                <a href="#">Tuyển dụng</a>
+                            </li>
+                            <li>
+                                <a href="#">Báo chí</a>
+                            </li>
+                            <li>
+                                <a href="#">Blog</a>
+                            </li>
+                            <li>
+                                <a href="#">Liên hệ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 mt-2">
+                        <h5 class="text-primary">HỖ TRỢ</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="https://kindmate.net/pricing">Chi phí</a>
+                            </li>
+                            <li>
+                                <a href="https://kindmate.net/terms-of-use">Điều khoản sử dụng</a>
+                            </li>
+                            <li>
+                                <a href="#">Hướng dẫn ủng hộ</a>
+                            </li>
+                            <li>
+                                <a href="https://kindmate.net/faqs">FAQs</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 mt-2">
+                        <select name="language" id="app-language" class="form-control">
+                            <option value="/?language=vi">Tiếng Việt</option>
+                            <option value="/?language=en">English</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container pb-4">
+        <span class="copyright-text">&copy; Copyright 2018 Kindmate All Rights Reserved</span>
+    </div>
+</footer>     </div>
+
+    <script>
+        window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '1407210996040164',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    </script>
+    <!-- Hotjar Tracking Code for http://kindmate.net -->
+    <script>
+        (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:472843,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+
+    </script>
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1952260295002228');
+        fbq('track', 'PageView');
+
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1952260295002228&ev=PageView&noscript=1"
+/></noscript>
+    <!-- End Facebook Pixel Code -->
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-96854736-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <script src="https://kindmate.net/js/app.js?v=2.0.6" defer></script>
+    <script src="https://kindmate.net/bassets/plugins/jquery/jquery.min.js"></script>
+    <script>
+        $( "#btn-organization" ).click(function() {
+            $( "#form-organization" ).submit();
+        });
+    </script>
+    <script type="text/javascript">
+        $(window).on('load',function(){
+            $('#gift').modal('show');
+        });
+    </script>
+            <script src="/bassets/plugins/toastr/toastr.min.js"></script>
+    <script>
+        $('#form-organization').submit(function(event){
+           event.preventDefault();
+            let fm = new FormData();
+            let avatar = document.querySelector('#campaign-org-cover').files[0];
+            fm.append('avatar',avatar);
+            fm.append('name',$('#campaign-org-name').val());
+            fm.append('short_name',$('#campaign-org-short-name').val());
+            fm.append('introduction',$('#organization_introduction').val());
+            fm.append('address',$('#campaign-org-address').val());
+            fm.append('email',$('#campaign-org-email').val());
+            fm.append('facebook',$('#messenger-link').val());
+            fm.append('phone',$('#organization_phone').val());
+
+           axios.post("https://kindmate.net/admin/organization",fm)
+               .then(function(res){
+                   $('#exampleModal').modal('hide');
+                   if (res.data.message === 'success'){
+                       $('#select-organization').append(new Option($('#campaign-org-name').val(), res.data.organization_id));
+                       $('#select-organization').val(res.data.organization_id);
+                       toastr.success('Tạo tổ chức thành công !');
+                   } else {
+                       toastr.error(res.data.message);
+                   }
+               }).catch(function (err) {
+                   console.log(err.data);
+           })
+        });
+    </script>
+</body>
+
+</html>
+

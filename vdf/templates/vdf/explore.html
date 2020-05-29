@@ -13,47 +13,7 @@
     <meta content="Kindmate giúp các cá nhân và tổ chức tự tạo một trang web gây quỹ cộng đồng chuyên nghiệp." property="og:description"
     />
     <meta content="Kindmate" property="og:site_name" />
-    <meta content="https://kindmate.net/ images/thumb.png ?v=2.0.6" property="og:image" />     <link href="./css/allstyle.css" rel="stylesheet">
-        <style>
-        .carousel-control-prev {
-            width: 28px;
-            left: -15px;
-            height: 28px;
-            background-color: #FFFFFF;
-            top: 49%;
-            border-radius: 50%;
-            opacity: 0.5;
-            box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 4px 8px 0 rgba(0,0,0,0.20);
-        }
-        .carousel-control-next {
-            width: 28px;
-            right: -15px;
-            height: 28px;
-            background-color: #FFFFFF;
-            top: 49%;
-            border-radius: 50%;
-            opacity: 0.5;
-            box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 4px 8px 0 rgba(0,0,0,0.20);
-        }
-        .carousel-control-prev-icon, .carousel-control-next-icon {
-            width: 10px;
-            height: 10px;
-        }
-        .carousel-control-prev:hover, .carousel-control-prev:focus, .carousel-control-next:hover, .carousel-control-next:focus {
-            color: #fff;
-            text-decoration: none;
-            outline: 0;
-            opacity: .9;
-        }
-
-        .carousel-control-prev-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23222' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
-        }
-
-        .carousel-control-next-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23222' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
-        }
-    </style>
+    <meta content="https://kindmate.net/ images/thumb.png ?v=2.0.6" property="og:image" />     <link href="https://kindmate.net/css/app.css?v=2.0.6" rel="stylesheet">
             <script>
         var IMG_API_URL = 'https://kindmate.net/app/campaign/image';
     </script>
@@ -95,79 +55,27 @@
     </div>
 </nav>
          <main class="py-5">
-                <section id="top-hero">
-        <div class="container">
+            <section class="my-2 pb-4 container">
+    <h2 class="mb-4">Khám phá chiến dịch</h2>
+    <div class="mt-2 mb-4">
+        <form method="GET" action="https://kindmate.net/explore" accept-charset="UTF-8" id="search-form">
             <div class="row">
-                <div class="col-lg-4 d-flex">
-                    <div class="align-self-center">
-                        <h1>
-                            Minh bạch quyên góp <br> Dễ dàng ủng hộ
-                        </h1>
-                        <p class="text-secondary my-4 pr-4 text-intro">
-                            Kindmate là một nền tảng gây quỹ cộng đồng - nơi mọi cá nhân, tổ chức đều có thể tự tạo một
-                            trang web gây quỹ nhanh chóng và chuyên nghiệp...
-                            <a href="https://kindmate.net/about">Tìm hiểu</a>
-                        </p>
-                        <div class="take-action-buttons mb-3">
-                            <a href="https://kindmate.net/app/campaign/create" class="btn btn-danger btn-lg">Tạo chiến
-                                dịch</a>
-                            <a href="https://kindmate.net/explore" class="btn btn-primary btn-lg">Các chiến dịch</a>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input id="name" class="form-control" placeholder="Nhập từ khóa" name="name" type="text" value="">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="zmdi zmdi-search zmdi-hc-lg"></i> 
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7 offset-lg-1">
-                    <article class="embed-responsive embed-responsive-16by9">
-                        <img class="embed-responsive-item rounded" src="https://kindmate.net/images/thumb.png"/>
-                    </article>
-                </div>
             </div>
-        </div>
-    </section>
-    <section id="category" class="py-5">
-        <div class="container">
-            <ul class="list-unstyled d-flex justify-content-between list-categories">
-                <li>
-                    <a href="#" class="btn btn-default btn-lg">
-                        <img src="https://kindmate.net/svg/tu-thien.svg" alt="kindmate-icon" class="mr-2" width="28">
-                        Từ thiện
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="btn btn-default btn-lg">
-                        <img src="https://kindmate.net/svg/tre-em.svg" alt="kindmate-icon" class="mr-2" width="28">
-                        Trẻ em
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="btn btn-default btn-lg">
-                        <img src="https://kindmate.net/svg/hoan-canh.svg" alt="kindmate-icon" class="mr-2" width="28">
-                        Khó khăn
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="btn btn-default btn-lg">
-                        <img src="https://kindmate.net/svg/khuyet-tat.svg" alt="kindmate-icon" class="mr-2" width="28">
-                        Khuyết tật
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="btn btn-default btn-lg">
-                        <img src="https://kindmate.net/svg/giao-duc.svg" alt="kindmate-icon" class="mr-2" width="28">
-                        Giáo dục
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="btn btn-default btn-lg">
-                        <img src="https://kindmate.net/svg/ung-ho.svg" alt="kindmate-icon" class="mr-2" width="28">
-                        Khác
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <section id="list-campaign" class="pb-5">
-        <div class="container">
-            <div class="row list-campaigns">
+        </form>
+    </div>
+    <div class="row list-campaigns">
         <div class="col-lg-3 col-md-4 col-sm-6 col-12">
        <article class="card campaign-style2 mb-4">
     <div class="embed-responsive embed-responsive-16by9">
@@ -609,286 +517,54 @@
 </article>
     </div>
     </div>
-            <div class="text-center mt-3">
-                <a href="https://kindmate.net/explore" class="btn btn-danger btn-lg">Xem tất cả chiến dịch</a>
-            </div>
-        </div>
-    </section>
-    <section id="channels" hidden class=" mb-5">
-        <div class="container">
-            <div class="border-top py-5">
-                <h5 class="section-title mb-4">Kênh quyên góp nổi bật</h5>
-                <ul class="list-unstyled  d-flex justify-content-between list-channels">
-                                        <li class="channel">
-                        <div class="channel-top mb-1">
-                            <img src="https://kindmate.net/sample/avatar.png" alt="" class="avatar avatar-lg">
-                                                            <span class="badge badge-pill badge-danger">2</span>
-                                                    </div>
-                        <div class="channel-body text-center">
-                            <a href="#" class="text-dark">
-                                Red Nose
-                            </a>
-                            <div class="text-secondary small">4 dự án</div>
-                        </div>
-                    </li>
-                                        <li class="channel">
-                        <div class="channel-top mb-1">
-                            <img src="https://kindmate.net/sample/avatar.png" alt="" class="avatar avatar-lg">
-                                                    </div>
-                        <div class="channel-body text-center">
-                            <a href="#" class="text-dark">
-                                Red Nose
-                            </a>
-                            <div class="text-secondary small">4 dự án</div>
-                        </div>
-                    </li>
-                                        <li class="channel">
-                        <div class="channel-top mb-1">
-                            <img src="https://kindmate.net/sample/avatar.png" alt="" class="avatar avatar-lg">
-                                                    </div>
-                        <div class="channel-body text-center">
-                            <a href="#" class="text-dark">
-                                Red Nose
-                            </a>
-                            <div class="text-secondary small">4 dự án</div>
-                        </div>
-                    </li>
-                                        <li class="channel">
-                        <div class="channel-top mb-1">
-                            <img src="https://kindmate.net/sample/avatar.png" alt="" class="avatar avatar-lg">
-                                                    </div>
-                        <div class="channel-body text-center">
-                            <a href="#" class="text-dark">
-                                Red Nose
-                            </a>
-                            <div class="text-secondary small">4 dự án</div>
-                        </div>
-                    </li>
-                                        <li class="channel">
-                        <div class="channel-top mb-1">
-                            <img src="https://kindmate.net/sample/avatar.png" alt="" class="avatar avatar-lg">
-                                                    </div>
-                        <div class="channel-body text-center">
-                            <a href="#" class="text-dark">
-                                Red Nose
-                            </a>
-                            <div class="text-secondary small">4 dự án</div>
-                        </div>
-                    </li>
-                                        <li class="channel">
-                        <div class="channel-top mb-1">
-                            <img src="https://kindmate.net/sample/avatar.png" alt="" class="avatar avatar-lg">
-                                                    </div>
-                        <div class="channel-body text-center">
-                            <a href="#" class="text-dark">
-                                Red Nose
-                            </a>
-                            <div class="text-secondary small">4 dự án</div>
-                        </div>
-                    </li>
-                                        <li class="channel">
-                        <div class="channel-top mb-1">
-                            <img src="https://kindmate.net/sample/avatar.png" alt="" class="avatar avatar-lg">
-                                                    </div>
-                        <div class="channel-body text-center">
-                            <a href="#" class="text-dark">
-                                Red Nose
-                            </a>
-                            <div class="text-secondary small">4 dự án</div>
-                        </div>
-                    </li>
-                                        <li class="channel">
-                        <div class="channel-top mb-1">
-                            <img src="https://kindmate.net/sample/avatar.png" alt="" class="avatar avatar-lg">
-                                                    </div>
-                        <div class="channel-body text-center">
-                            <a href="#" class="text-dark">
-                                Red Nose
-                            </a>
-                            <div class="text-secondary small">4 dự án</div>
-                        </div>
-                    </li>
-                                    </ul>
-            </div>
-        </div>
-    </section>
-    <section id="success-campaign" class="mb-5">
-        <div class="container  border-top mt-4 pt-5">
-            <h5 class="section-title mb-4">Chiến dịch thành công</h5>
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active "></li>
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
-                                    </ol>
-                <div class="carousel-inner">
-                                            <div class="carousel-item campaign-style3 active ">
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <div class="embed-responsive embed-responsive-16by9 campaign-style1 mb-3 mb-md-0">
-                                        <img class="embed-responsive-item" src="https://kindmate.net/Uploads/2019/10/29/5db7a25ce0597-hiojojojojo.jpg"
-                                             alt="Dự án Đông ấm cho em - Mang tình yêu thương tới trẻ em bị bỏ rơi tại chùa Mục Đồng"/>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 d-flex flex-column align-items-start">
-                                    <div class="w-100">
-                                        <a href="https://kindmate.net/project/990/du-an-dong-am-cho-em---mang-tinh-yeu-thuong-toi-tre-em-bi-bo-roi-tai-chua-muc-dong">
-                                            <h2 class="campaign-title text-dark">Dự án Đông ấm cho em - Mang tình yêu thương tới trẻ em bị bỏ rơi tại chùa Mục Đồng</h2>
-                                        </a>
-                                        <div class="text-secondary my-3">Dang tay giúp đỡ các trẻ em bị bỏ rơi và các bà mẹ đơn thân đang nương tựa tại Chùa Mục Đồng. Mùa đông đang tới rất gần, số lượng trẻ em bị bỏ rơi ngày càng tăng lên, rất cần sự hỗ trợ của cộng đồng.</div>
+<div class="my-3">
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center" role="navigation">
+            
+                            <li class="page-item disabled" aria-disabled="true" aria-label="&laquo; Previous">
+                    <span class="page-link" aria-hidden="true">
+                        <i class="zmdi zmdi-chevron-left zmdi-hc-lg"></i>
+                        <i class="fa fa-chevron-left"></i>
+                    </span>
+                </li>
+            
+            
+                            
+                
+                
+                                                                                        <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://kindmate.net/explore?page=2">2</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://kindmate.net/explore?page=3">3</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://kindmate.net/explore?page=4">4</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://kindmate.net/explore?page=5">5</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://kindmate.net/explore?page=6">6</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://kindmate.net/explore?page=7">7</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://kindmate.net/explore?page=8">8</a></li>
+                                                                                        
+                                    <li class="page-item disabled" aria-disabled="true"><span class="page-link">...</span></li>
+                
+                
+                                            
+                
+                
+                                                                                        <li class="page-item"><a class="page-link" href="https://kindmate.net/explore?page=43">43</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://kindmate.net/explore?page=44">44</a></li>
+                                                                        
+            
+                            <li class="page-item">
+                    <a class="page-link" href="https://kindmate.net/explore?page=2" rel="next" aria-label="Next &raquo;">
+                        <i class="zmdi zmdi-chevron-right zmdi-hc-lg"></i>
+                        <i class="fa fa-chevron-right"></i>
+                    </a>
+                </li>
+                    </ul>
+    </nav>
 
-                                        <div class="campagin-progress">
-                                            <div class="d-flex justify-content-between align-items-end">
-                                                <h4 class="text-primary mb-0 h3">37,600,000
-                                                    đ <small>(150%)</small></h4>
-                                                <span>25 tr triệu</span>
-                                            </div>
-                                            <div class="progress my-2">
-                                                <div class="progress-bar"
-                                                     style="width: 150%"
-                                                     role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                                     aria-valuemax="100"></div>
-                                            </div>
-                                            <div class="d-flex justify-content-between align-items-end">
-                                                <div class="user-count">
-                                                    <strong>85</strong> người
-                                                    ủng hộ
-                                                </div>
-                                                <div class="user-count">
-                                                    <span class="small text-secondary">
-                                                        Đã hết hạn 6 tháng trước
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-auto w-100">
-                                        <div class="small text-secondary mb-1">
-                                            ĐƠN VỊ TỔ CHỨC
-                                        </div>
-                                        <div class="media align-items-center">
-                                                                                            <img width="50" class="mr-2 avatar " src="https://kindmate.net/images/user-avatar.png"
-                                                     alt="https://kindmate.net/images/user-avatar.png">
-                                                <div class="media-body">
-                                                    <p class="dotdotdot mb-0">IvyPrep Education</p>
-                                                </div>
-                                                                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                            <div class="carousel-item campaign-style3 ">
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <div class="embed-responsive embed-responsive-16by9 campaign-style1 mb-3 mb-md-0">
-                                        <img class="embed-responsive-item" src="https://kindmate.net/Uploads/2019/10/09/5d9dbafcad669-cover.jpg"
-                                             alt="Gây quỹ Thành lập Xưởng nghệ thuật đào tạo nghề - hướng nghiệp cho trẻ tự kỷ"/>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 d-flex flex-column align-items-start">
-                                    <div class="w-100">
-                                        <a href="https://kindmate.net/project/929/gay-quy-thanh-lap-xuong-nghe-thuat-dao-tao-nghe---huong-nghiep-cho-tre-tu-ky">
-                                            <h2 class="campaign-title text-dark">Gây quỹ Thành lập Xưởng nghệ thuật đào tạo nghề - hướng nghiệp cho trẻ tự kỷ</h2>
-                                        </a>
-                                        <div class="text-secondary my-3">Xưởng nghệ thuật Tòhe Fun là nơi đào tạo nghề - hướng nghiệp dành cho trẻ tự kỷ, nhằm chuẩn bị cho các bạn một cuộc sống tự lập và hoà nhập tốt hơn với xã hội khi đến giai đoạn trưởng thành.</div>
-
-                                        <div class="campagin-progress">
-                                            <div class="d-flex justify-content-between align-items-end">
-                                                <h4 class="text-primary mb-0 h3">50,500,000
-                                                    đ <small>(15%)</small></h4>
-                                                <span>345 tr triệu</span>
-                                            </div>
-                                            <div class="progress my-2">
-                                                <div class="progress-bar"
-                                                     style="width: 15%"
-                                                     role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                                     aria-valuemax="100"></div>
-                                            </div>
-                                            <div class="d-flex justify-content-between align-items-end">
-                                                <div class="user-count">
-                                                    <strong>47</strong> người
-                                                    ủng hộ
-                                                </div>
-                                                <div class="user-count">
-                                                    <span class="small text-secondary">
-                                                        Đã hết hạn 4 tháng trước
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-auto w-100">
-                                        <div class="small text-secondary mb-1">
-                                            ĐƠN VỊ TỔ CHỨC
-                                        </div>
-                                        <div class="media align-items-center">
-                                                                                            <img width="50" class="mr-2 avatar "
-                                                     src="https://kindmate.net/Uploads/2019/10/09/5d9dbb0247021-logo.jpg"
-                                                     alt="Tòhe">
-                                                <div class="media-body">
-                                                    <p class="dotdotdot mb-0">Tòhe</p>
-                                                </div>
-                                                                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                    </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section id="introduce" class="py-5 bg-light">
+</div>
+</section>
+<section id="introduce" class="py-5 bg-light">
     <div class="container">
-            <!--     <div class="top-introduce py-5">
-            <div class="row">
-                <div class="col-md-5 order-2 order-md-1 d-flex align-items-center">
-                    <article class="introduce-box">
-                        <h2>Kindmate là một nền tảng gây quỹ cộng đồng</h2>
-                        <p class="my-3 text-secondary">
-                            Được phát triển bởi Wakeitup, Kindmate tập trung vào việc sử dụng công nghệ để giảm bớt rào cản và kết nối các nguồn lực cộng đồng, giúp cho việc gây quỹ trở nên đơn giản, hiệu quả và minh bạch.
-                        </p>
-                        <div class="d-flex justify-content-between">
-                            <div class="count-box">
-                                <h4 class="text-primary">300+</h4>
-                                <div class="text-secondary">
-                                    Chiến dịch
-                                </div>
-                            </div>
-                            <div class="count-box px-3">
-                                <h4 class="text-primary">6,000 +</h4>
-                                <div class="text-secondary">
-                                    Người tham gia
-                                </div>
-                            </div>
-                            <div class="count-box">
-                                <h4 class="text-primary">5,5 tỷ</h4>
-                                <div class="text-secondary">
-                                    Tiền quyên góp được
-                                </div>
-                            </div>
-                        </div>
-                        <a href="https://kindmate.net/about" class="btn btn-lg btn-primary mt-5">
-                            Tìm hiểu thêm
-                        </a>
-                    </article>
-                </div>
-                <div class="col-md-6 offset-sm-1 order-1 order-md-2 ">
-                    <img width="100%" class="my-3" src="https://kindmate.net/svg/donation.svg" alt="">
-                </div>
-            </div>
-        </div> -->
         
-                <div class="middle-introduce py-5">
-            <div class="row">
-                            </div>
-        </div>
         
 
                 <div class="bottom-introduce mt-4 row">
