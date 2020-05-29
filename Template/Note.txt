@@ -1,0 +1,21 @@
+- Note lại để mô tả cái cấu trúc của thằng này 
+
+- index/about: khi mà ấn vào về chúng tôi trên navbar hoặc là ấn tìm hiểu thì nó nhảy ra cái thằng mới đó.
+
+- index/explore: Xem thông tin của tất cả các chiến dịch hiện có, ta đi đến thằng này bằng cách ấn vaò nút Các chiến dịch tại trang index, hoặc là vào mục các chiến dịch trong phần navbar đều chuyển đến thằng này.
+
+- Khi mà mình gõ từ khóa và ấn enter thì nó hiển thị thông tin tìm kiếm, thằng này viết bằng php, cái trang kết quả của nó là explore?name=quang+nam ví dụ thế.
+
+- Khi mình ấn vào thằng page numbering thì nó chuyển sang một url mới, mang tên là explore?page=2. Nội dung trang này trong file: explore_pages.html
+
+- Có trang tin tức, nhưng mà hình như trang ni chưa được đầu tư cho lắm, muốn đến được thằng này thì vào nav bar ấn mục tin tức. Nội dung trang ni trong thằng articles.html
+
+- Có trang tạo tài khoản, thằng này vào nav bar chọn mục tạo tài khoản. Nội dung chi tiết của trang này trong trang register.
+
+- Thằng login này hiện ra khi ta chuyển vào mục đăng nhập của thằng ni, hoặc là từ trang chủ mà mình vào nút tạo chiến dịch thì nó cũng chuyển qua thằng login này luôn. 
+
+- Khi đăng nhập xong thì nó chuyển mình về cái trang index của nó.
+
+- Khi ấn vào một chiến dịch cụ thể thì mình có trang chi tiết, đường dẫn nó cũng khác, nó chuyển mình sang thằng /project/1328/chien_dich. Trang chi tiết chiến dịch: project_detail.html 
+
+
