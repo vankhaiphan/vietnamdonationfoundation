@@ -1,0 +1,56 @@
+ {% load static %}
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="E4PL4GpqcuX9oLPDH7EtiIgFHQYJt2v6zTukfOAv">
+    <link href="../static/vdf/allstyle.css" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'vdf/img/vdflogo.png' %}"> {% block header %} {% endblock %}
+    <script>
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-kindmate">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    <img class="logo-img" src="../static/vdf/img/vdflogo.png" alt="Kindmate">
+                </a>
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="{% url 'index' %}" class="nav-link"> <i class="fas fa-arrow-left"></i> Quay về trang chủ</a>
+                    </li>
+                </ul>
+                <!-- SEARCH FORM -->
+                <!-- Right navbar links -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Messages Dropdown Menu -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById().submit();">
+                            <i class="fas fa-fw fa-sign-out-alt mr-1"></i> Đăng xuất
+                        </a>
+                    </li>
+                </ul>
+                {% block session%} {% endblock %}
+            </div>
+        </nav>
+        <!-- /.navbar -->
+        <main class="py-5">
+            {% block body %} {% endblock %}
+        </main>
+        <footer class="footer">
+            <div class="container pb-4">
+                <span class="copyright-text">&copy; Copyright 2020 VDF All Rights Reserved</span>
+            </div>
+        </footer>
+    </div>
+    {% block script %} {% endblock %}
+
+</body>
