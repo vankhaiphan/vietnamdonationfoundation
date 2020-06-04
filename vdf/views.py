@@ -56,3 +56,11 @@ def donate(request):
 #     return render(request, "vdf/greet.html", {
 #         "name":name.capitalize()
 #     })
+def AdminCampaign(request):
+    return render(request, "vdf/AdminCampaign.html")
+
+def AdminShowUser(request):
+    return render(request, "vdf/AdminShowUser.html")
+
+def AdminUserEdit(request):
+    return render(request, "vdf/AdminUserEdit.html")

@@ -13,6 +13,9 @@ urlpatterns = [
     path("project_detail", views.project_detail, name="project_detail"),
     path("register", views.register, name="register"),
     path("taochiendich", views.taochiendich, name="taochiendich"),
-    path("donate", views.donate, name="donate")
+    path("donate", views.donate, name="donate"),
+    path("admin/campaign", views.AdminCampaign, name="adminCampaign"),
+    path("admin/show-user", views.AdminShowUser, name="adminShowUser"),
+    path("admin/edit", views.AdminUserEdit, name="adminUserEdit")
     # path("<str:name>", views.greet, name="greet")
 ]
