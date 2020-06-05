@@ -1,0 +1,51 @@
+{% extends 'vdf/supAdminLayout.html'%}
+{% load static %}
+
+{% block head %}
+<title>VDF - Nền tảng gây quỹ dễ dàng nhanh chóng</title>
+{% endblock %}
+{% block body%}
+<h1 class="h3 mb-2 text-gray-800">Thông tin cá nhân</h1>
+
+<!-- DataTales Example -->
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"></h3>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">Thông tin cá nhân:</h3>
+                    </div>
+                    <div class="card-body box-profile">
+                        <div class="text-center">
+                            <img class="profile-user-img img-fluid img-circle"
+                                src="https://kindmate.net/images/user-avatar.png" alt="User profile picture">
+                        </div>
+                        <h3 class="profile-username text-center mb-5">Avatar</h3>
+                        <ul class="list-group list-group-unbordered mb-3">
+                            <li class="list-group-item">
+                                <b>Tên người dùng:</b> <a class="float-right">Đặng Huỳnh Khánh Ly</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Email người dùng:</b> <a class="float-right">khanhsly22@gmail.com</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Số điện thoại người dùng:</b> <a class="float-right">0778847342</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Địa chỉ nhà riêng:</b> <a class="float-right">Hòa Tiến-Hòa Vang-Đà Nẵng</a>
+                            </li>
+                            <hr>
+                            <a href="{% url 'supAdminEdit' %}" class="btn btn-danger btn-block"><b>Cập nhật thông tin
+                                    cá nhân</b></a>
+                        </>
+                    </>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

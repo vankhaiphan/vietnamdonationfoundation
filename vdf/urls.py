@@ -16,6 +16,12 @@ urlpatterns = [
     path("donate", views.donate, name="donate"),
     path("admin/campaign", views.AdminCampaign, name="adminCampaign"),
     path("admin/show-user", views.AdminShowUser, name="adminShowUser"),
-    path("admin/edit", views.AdminUserEdit, name="adminUserEdit")
+    path("admin/edit", views.AdminUserEdit, name="adminUserEdit"),
+    path("supadmin/showusers",views.supAdminshowUsers, name="supAdminshowUsers"),
+    path("supadmin/edit",views.supAdminEdit,name="supAdminEdit"),
+    path("supadmin/showdetails",views.supAdminShowDetails,name="supAdminShowDetails"),
+    path("supadmin/campaign",views.supAdminCampaign,name="supAdminCampaign"),
+    path("supadmin/supAdminadduser",views.supAdminadduser,name="supAdminadduser"),
+    path("supadmin/feedback",views.Feedback,name="Feedback"),
     # path("<str:name>", views.greet, name="greet")
 ]

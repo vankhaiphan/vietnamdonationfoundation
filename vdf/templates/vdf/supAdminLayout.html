@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://kindmate.net/admin/campaign -->
+<html lang="en" style="height: auto;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="E4PL4GpqcuX9oLPDH7EtiIgFHQYJt2v6zTukfOAv">
+    <link href="../static/vdf/allstyle.css" rel="stylesheet">
+    <link href="../static/vdf/adminlte.css" rel="stylesheet">
+    <link href="../static/vdf/adminlte.min.css" rel="stylesheet">
+    <link href="../static/vdf/site.css" rel="stylesheet">
+    <link href="../static/vdf/ajax.css" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'vdf/img/vdflogo.png' %}">
+    {% block head %}
+    {% endblock %}
+    <script>
+        // var IMG_API_URL = 'https://kindmate.net/app/campaign/image';
+    </script>
+</head>
+
+<body class="sidebar-mini sidebar-open" style="height: auto;">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-dark navbar-purple">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="{% url 'index' %}" class="nav-link"> <i class="fas fa-arrow-left"></i> Quay về trang
+                        chủ</a>
+                </li>
+            </ul>
+
+            <!-- SEARCH FORM -->
+
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Messages Dropdown Menu -->
+
+                <li class="nav-item">
+                    <a class="nav-link" href="https://kindmate.net/logout"
+                        onclick="event.preventDefault(); document.getElementById(&#39;logout-form&#39;).submit();">
+                        <i class="fas fa-fw fa-sign-out-alt mr-1"></i>
+                        Đăng xuất
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-light-purple">
+            <!-- Brand Logo -->
+            <a href="{% url 'adminCampaign' %}" class="brand-link navbar-purple">
+                <img src="../static/vdf/img/vdflogo.png" alt="AdminLTE Logo" class="brand-image">
+                <span class="brand-text font-weight-light">&nbsp;</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="../static/vdf/img/user-avatar.png" class="img-circle elevation-1" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Đặng Huỳnh Khánh Ly</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'supAdminShowDetails' %}">
+                                <i class="fas fa-id-card"></i> Thông tin cá nhân
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'supAdminCampaign' %}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Chiến dịch
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'supAdminshowUsers' %}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Người dùng
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'Feedback' %}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Phản hồi
+                                </p>
+                            </a>
+                        </li>
+
+                        
+
+                        <!-- Nav Item - Tables -->
+
+                        <!-- Nav Item - Tables -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'index' %}">
+                                <i class="fas fa-fw fa-home"></i>
+                                <span>Về trang chủ</span></a>
+                        </li>
+
+                        <!-- Nav Item - Tables -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}" onclick="event.preventDefault();
+                          document.getElementById(&#39;logout-form&#39;).submit();">
+                                <i class="fas fa-fw fa-sign-out-alt"></i>
+                                <span>Đăng xuất</span></a>
+                            <form id="logout-form" action="https://kindmate.net/logout" method="POST"
+                                style="display: none;">
+                                <input type="hidden" name="_token" value="yLfAYTIwaASns1n1VvG6SQgsafrp0b6zLOyilQsU">
+                            </form>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper pt-4 pb-3" style="min-height: 740px;">
+            <div class="container">
+                {% block body %}
+                {% endblock%}
+            </div>
+        </div>
+        <!-- /.content-wrapper -->
+
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-block">
+                <a href="https://www.facebook.com/Kindmate">Facebook Fanpage</a>
+            </div>
+            <span>Copyright © 2014-2019 <a href="http://adminlte.io/">Vietnam Donation Foundation</a>.</span> All rights
+            reserved.
+        </footer>
+        <!-- /.control-sidebar -->
+        <div id="sidebar-overlay"></div>
+    </div>
+
+    <script src="./Kindmate - Nền tảng gây quỹ dễ dàng nhanh chóng_files/jquery.min.js.download"></script>
+    <script src="./Kindmate - Nền tảng gây quỹ dễ dàng nhanh chóng_files/bootstrap.bundle.min.js.download"></script>
+    <script src="./Kindmate - Nền tảng gây quỹ dễ dàng nhanh chóng_files/adminlte.min.js.download"></script>
+    <script src="./Kindmate - Nền tảng gây quỹ dễ dàng nhanh chóng_files/demo.js.download"></script>
+    <script src="./Kindmate - Nền tảng gây quỹ dễ dàng nhanh chóng_files/sweetalert2.all.min.js.download"></script>
+    <script src="./Kindmate - Nền tảng gây quỹ dễ dàng nhanh chóng_files/toastr.min.js.download"></script>
+    <script src="./Kindmate - Nền tảng gây quỹ dễ dàng nhanh chóng_files/summernote-bs4.js.download"></script>
+    <script src="./Kindmate - Nền tảng gây quỹ dễ dàng nhanh chóng_files/axios.min.js.download"></script>
+    <script>
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $(document).ready(function () {
+            $('.summernote').summernote();
+        });
+    </script>
+    <script src="./Kindmate - Nền tảng gây quỹ dễ dàng nhanh chóng_files/jquery-ui.min.js.download"></script>
+    <script>
+        $(function () {
+            function formatMoney(amount, decimalCount = 2, decimal = ".", thousands = ",") {
+                try {
+                    decimalCount = Math.abs(decimalCount);
+                    decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
+
+                    const negativeSign = amount < 0 ? "-" : "";
+
+                    let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
+                    let j = (i.length > 3) ? i.length % 3 : 0;
+
+                    return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+                } catch (e) {
+                    console.log(e)
+                }
+            };
+            $("#search-string").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "https://kindmate.net/admin/ajax/campaign",
+                        dataType: "json",
+                        data: {
+                            keyword: request.term
+                        },
+                        success: function (data) {
+                            response(data.data);
+                        }
+                    });
+                },
+                minLength: 2,
+                appendTo: $('#result'),
+
+            }).autocomplete("instance")._renderItem = function (ul, item) {
+                return $("<li>")
+                    .append("<div class='data-item'><a href='" + item.url + "'>" + item.name + "<span class='location' >" + item.money + "</span>" + "</a></div>")
+                    .appendTo(ul);
+            }
+        });
+    </script>
+    <script>
+        function filter() {
+            let status = "";
+            let deadline = "";
+            let name = "";
+            if ($('#status').val() && $('#status').val() !== "all") {
+                status = $('#status').val();
+            }
+            if ($('#deadline').val() && $('#deadline').val() !== "all") {
+                deadline = $('#deadline').val();
+            }
+            if ($('#search-string').val()) {
+                name = $('#search-string').val();
+                console.log(name)
+            }
+            window.location.href = "https://kindmate.net/admin/campaign" + "?status=" + status + "&deadline=" + deadline + "&name=" + name;
+        }
+    </script>
+
+
+
+    <div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div>
+</body>
+
+</html>

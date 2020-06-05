@@ -1,0 +1,67 @@
+{% extends 'vdf/supAdminLayout.html'%}
+{% load static %}
+
+{% block head %}
+<title>VDF - Nền tảng gây quỹ dễ dàng nhanh chóng</title>
+{% endblock %}
+
+{% block body %}
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800"> Danh sách Chiến dịch</h1>
+<p class="mb-4">Danh sách tất cả chiến dịch hiện tại ở VDF.</p>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Danh sách Chiến dịch</h3>
+        <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 100%;">
+                <select name="status" id="status" class="form-control float-right mr-2">
+                    <option value="all" selected="">Trạng thái</option>
+                    <option value="public">Đã duyệt</option>
+                    <option value="visible">Chờ duyệt</option>
+                    <option value="hidden">Đã ẩn</option>
+                    <option value="unpublic">Đã từ chối</option>
+                    <option value="unpublic">Bị báo cáo</option>
+                </select>
+                <select name="deadline" id="deadline" class="form-control float-right">
+                    <option value="all" selected="">Hạn</option>
+                    <option value="0">Chưa hết hạn</option>
+                    <option value="1">Đã hết hạn</option>
+                </select>
+                <button class="btn btn-success form-control mr-2" onclick="filter()">
+                    Lọc
+                </button>
+                <input type="text" name="table_search" class="form-control float-right ui-autocomplete-input"
+                    placeholder="Search" id="search-string" value="" autocomplete="off">
+
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-default" onclick="filter()"><i
+                            class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div id="result" class="result">
+                <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front"
+                    style="display: none;"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-striped table-valign-middle border-bottom mb-2">
+            <thead>
+                <tr>
+                    <th class="border-bottom-0">Chiến dịch</th>
+                    <th class="border-bottom-0">Ngày hết hạn</th>
+                    <th class="border-bottom-0">Status</th>
+                    <th class="border-bottom-0">Mục tiêu</th>
+                    <th class="border-bottom-0">Đạt được</th>
+                    <th class="border-bottom-0">Hành động</th>
+                </tr>
+            </thead>
+            <tbody id="data-body">
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+
+{% endblock %}

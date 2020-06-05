@@ -64,3 +64,21 @@ def AdminShowUser(request):
 
 def AdminUserEdit(request):
     return render(request, "vdf/AdminUserEdit.html")
+
+def supAdminshowUsers(request):
+    return render(request,"vdf/supAdminshowUsers.html")
+
+def supAdminShowDetails(request):
+    return render(request,"vdf/supAdminShowDetails.html")
+
+def supAdminEdit(request):
+    return render(request,"vdf/supAdminEdit.html")
+
+def supAdminCampaign(request):
+    return render(request, "vdf/supAdminCampaign.html")
+
+def supAdminadduser(request):
+    return render(request,"vdf/supAdminadduser.html")
+
+def Feedback(request):
+    return render(request,"vdf/Feedback.html")
