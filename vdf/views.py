@@ -64,6 +64,9 @@ def AdminShowUser(request):
 
 def AdminUserEdit(request):
     return render(request, "vdf/AdminUserEdit.html")
+    
+def AdminChangePassword(request):
+    return render(request, "vdf/AdminChangePassword.html")
 
 def supAdminshowUsers(request):
     return render(request,"vdf/supAdminshowUsers.html")
