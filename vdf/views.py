@@ -58,9 +58,6 @@ def project_detail(request):
 def register(request):
     return render(request, "vdf/register.html")
 
-def resetpassword(request):
-    return render(request, "vdf/resetpassword.html")
-
 def taochiendich(request):
     if not request.user.is_authenticated:
         return render(request, "vdf/login.html", {"message": None})
