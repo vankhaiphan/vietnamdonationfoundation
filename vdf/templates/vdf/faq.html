@@ -1,6 +1,4 @@
-{% extends 'vdf/layout.html'%} 
-{% load static %}
-{% block head%}
+{% extends 'vdf/layout.html'%} {% load static %} {% block head%}
 <title>VDF - Nền tảng gây quỹ dễ dàng nhanh chóng</title>
 {% endblock %} {% block body%}
 <main>
@@ -37,8 +35,8 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label for="">Nội dung</label>
-                                                <input id="textarea" type="textarea" class="form-control" name="noidung">
+                                                <label for="content">Nội dung</label>
+                                                <textarea placeholder="Nhập nội dung" class="form-control" name="content" maxlength="1000"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group mb-0">
