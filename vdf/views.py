@@ -6,51 +6,42 @@ from django.urls import reverse
 
 # Create your views here.
 def index(request):
-    if request.user.is_authenticated:
-        return render(request, "vdf/index.html", { "user": request.user.username} )
-    return render(request, "vdf/index.html", { "user" : ""})
+    return checkAuthenticationThenRedirect(request, "vdf/index.html")
 
 
 def about(request):
-    if request.user.is_authenticated:
-        return render(request, "vdf/about.html", {"user": request.user.username})
-    return render(request, "vdf/about.html", {"user": ""})
+    return checkAuthenticationThenRedirect(request, "vdf/about.html")
 
 
 def articles(request):
-    if request.user.is_authenticated:
-        return render(request, "vdf/articles.html", {"user": request.user.username})
-    return render(request, "vdf/articles.html", {"user": ""})
+    return checkAuthenticationThenRedirect(request, "vdf/articles.html")
 
 
 def explore_pages(request):
-    return render(request, "vdf/explore_pages.html")
+    return checkAuthenticationThenRedirect(request, "vdf/explore_pages.html")
 
 
 def explore_result(request):
-    return render(request, "vdf/explore_result.html")
+    return checkAuthenticationThenRedirect(request, "vdf/explore_result.html")
 
 
 def thankyou(request):
-    return render(request, "vdf/thankyou.html")
+    return checkAuthenticationThenRedirect(request, "vdf/thankyou.html")
 
 
 def explore(request):
-    if request.user.is_authenticated:
-        return render(request, "vdf/explore.html", { "user": request.user.username} )
-    return render(request, "vdf/explore.html", { "user": ""})
+    return checkAuthenticationThenRedirect(request, "vdf/explore.html")
 
 
 def faq(request):
-    return render(request, "vdf/faq.html")
-
+    return checkAuthenticationThenRedirect(request, "vdf/faq.html")
 
 def faqs(request):
-    return render(request, "vdf/faqs.html")
+    return checkAuthenticationThenRedirect(request, "vdf/faqs.html")
 
 
 def resetpassword(request):
-    return render(request, "vdf/resetpassword.html")        
+    return checkAuthenticationThenRedirect(request, "vdf/resetpassword.html")        
 
 
 def login_view(request):
@@ -70,28 +61,21 @@ def logout_view(request):
 
 
 def project_detail(request):
-    return render(request, "vdf/project_detail.html")
+    return checkAuthenticationThenRedirect(request, "vdf/project_detail.html")
 
 
 def register(request):
-    return render(request, "vdf/register.html")
-
-
-def resetpassword(request):
-    return render(request, "vdf/resetpassword.html")
+    return checkAuthenticationThenRedirect(request, "vdf/register.html")
 
 
 def taochiendich(request):
     if not request.user.is_authenticated:
-        return render(request, "vdf/login.html", {"message": None})
-    context = {
-        "user": request.user.username
-    }
-    return render(request, "vdf/taochiendich.html", context)
+        return render(request, "vdf/login.html", {"user": ""})
+    return render(request, "vdf/taochiendich.html", { "user": request.user.username})
 
 
 def donate(request):
-    return render(request, "vdf/donate.html")
+    return checkAuthenticationThenRedirect(request, "vdf/donate.html")
 # def greet(request, name):
 #     return render(request, "vdf/greet.html", {
 #         "name":name.capitalize()
@@ -99,40 +83,46 @@ def donate(request):
 
 
 def AdminCampaign(request):
-    return render(request, "vdf/AdminCampaign.html")
+    return checkAuthenticationThenRedirect(request, "vdf/AdminCampaign.html")
 
 
 def AdminShowUser(request):
-    return render(request, "vdf/AdminShowUser.html")
+    return checkAuthenticationThenRedirect(request, "vdf/AdminShowUser.html")
 
 
 def AdminUserEdit(request):
-    return render(request, "vdf/AdminUserEdit.html")
+    return checkAuthenticationThenRedirect(request, "vdf/AdminUserEdit.html")
 
 
 def AdminChangePassword(request):
-    return render(request, "vdf/AdminChangePassword.html")
+    return checkAuthenticationThenRedirect(request, "vdf/AdminChangePassword.html")
 
 
 def supAdminshowUsers(request):
-    return render(request,"vdf/supAdminshowUsers.html")
+    return checkAuthenticationThenRedirect(request, "vdf/supAdminshowUsers.html")
 
 
 def supAdminShowDetails(request):
-    return render(request,"vdf/supAdminShowDetails.html")
+    return checkAuthenticationThenRedirect(request, "vdf/supAdminShowDetails.html")
 
 
 def supAdminEdit(request):
-    return render(request,"vdf/supAdminEdit.html")
+    return checkAuthenticationThenRedirect(request, "vdf/supAdminEdit.html")
 
 
 def supAdminCampaign(request):
-    return render(request, "vdf/supAdminCampaign.html")
+    return checkAuthenticationThenRedirect(request, "vdf/supAdminCampaign.html")
 
 
 def supAdminadduser(request):
-    return render(request,"vdf/supAdminadduser.html")
+    return checkAuthenticationThenRedirect(request, "vdf/supAdminadduser.html")
 
 
 def Feedback(request):
-    return render(request,"vdf/Feedback.html")
+    return checkAuthenticationThenRedirect(request, "vdf/Feedback.html")
+
+def checkAuthenticationThenRedirect(request, page_name):
+    if request.user.is_authenticated:
+        return render(request, page_name, { "user": request.user.username})
+    
+    return render(request, page_name, { "user": ""})
