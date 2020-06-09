@@ -19,6 +19,8 @@ def explore_pages(request):
 def explore_result(request):
     return render(request, "vdf/explore_result.html")
 
+def thankyou(request):
+    return render(request, "vdf/thankyou.html")
 def explore(request):
     return render(request, "vdf/explore.html")
 
@@ -41,6 +43,9 @@ def project_detail(request):
 
 def register(request):
     return render(request, "vdf/register.html")
+
+def resetpassword(request):
+    return render(request, "vdf/resetpassword.html")
 
 def taochiendich(request):
     if not request.user.is_authenticated:
