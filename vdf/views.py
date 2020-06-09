@@ -21,6 +21,7 @@ def explore_result(request):
 
 def thankyou(request):
     return render(request, "vdf/thankyou.html")
+    
 def explore(request):
     return render(request, "vdf/explore.html")
 
