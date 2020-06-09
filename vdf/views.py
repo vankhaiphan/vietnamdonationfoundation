@@ -58,6 +58,9 @@ def project_detail(request):
 def register(request):
     return render(request, "vdf/register.html")
 
+def contact(request):
+    return render(request, "vdf/contact.html")    
+
 def resetpassword(request):
     return render(request, "vdf/resetpassword.html")
 
