@@ -1,0 +1,58 @@
+{% extends 'vdf/layout.html'%} {% load static %} {% block head%}
+<title>VDF - Nền tảng gây quỹ dễ dàng nhanh chóng</title>
+{% endblock %} {% block body%}
+<main>
+    <h1 class="h3 mb-2 text-gray-800">Liên Hệ</h1>
+
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title"></h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 offset-3">
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">Liên hệ</h3>
+                        </div>
+                        <form method="POST" action="#">
+                            <input type="text" name="Name">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="Name">Họ Tên</label>
+                                        <input type="text" class="form-control" name="Name">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input id="email" type="email" class="form-control" name="email">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="content">Nội dung</label>
+                                                <textarea placeholder="Nhập nội dung" class="form-control" name="content" maxlength="1000"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-0">
+                                            <a class="btn btn-link" href="{% url 'index' %}">
+                                            Quay về trang chủ 
+                                        </a>
+                                            <button type="submit" class="btn btn-primary">
+                                            Gửi thông tin
+                                        </button>
+                                        </div>
+                        </form>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+</main>
+{% endblock %}
