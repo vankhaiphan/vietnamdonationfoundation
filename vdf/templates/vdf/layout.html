@@ -7,12 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="E4PL4GpqcuX9oLPDH7EtiIgFHQYJt2v6zTukfOAv">
     <link href="../static/vdf/allstyle.css" rel="stylesheet">
+<<<<<<< HEAD
+    <link rel="shortcut icon" href="{% static 'vdf/img/vdflogo.png' %}"> {% block head %} {% endblock %}
+=======
     <link rel="shortcut icon" href="{% static 'vdf/img/vdflogo.png' %}">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     {% block head %}
     {% endblock %}
+>>>>>>> 3e492c09904f342cb421e56b3c3e5926abf9d513
     <script>
         // var IMG_API_URL = 'https://kindmate.net/app/campaign/image';
     </script>
@@ -44,21 +48,18 @@
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Authentication Links -->
-                    <li class="nav-item">
-                    <!-- <a class="nav-link font-weight-bold text-primary" href="#"> Tạo
+                        <li class="nav-item">
+                            <!-- <a class="nav-link font-weight-bold text-primary" href="#"> Tạo
                     chiến dịch</a> -->
-                    <form id="logout-form" action="{% url 'logout' %}" method="POST">
-                        {% csrf_token %}
-                        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" >Log out</button>                       
-                    </form>
-                    
-                    </li>
-                    <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"
-                    aria-haspopup="true" aria-expanded="false" v-pre>
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                    id="Capa_1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 49.654 49.654"
-                    style="enable-background:new 0 0 49.654 49.654; margin-top: -3px;" xml:space="preserve">
+                            <form id="logout-form" action="{% url 'logout' %}" method="POST">
+                                {% csrf_token %}
+                                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Log out</button>
+                            </form>
+
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 49.654 49.654" style="enable-background:new 0 0 49.654 49.654; margin-top: -3px;" xml:space="preserve">
                     <g>
                         <g>
                             <g>
@@ -70,6 +71,16 @@
                         </g>
                     </g>
                     </svg>
+<<<<<<< HEAD
+                                <strong class="ml-1">{{ user }}</strong>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="zmdi mr-1 zmdi-view-dashboard"></i> Trang quản trị
+                                </a>
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault();
+=======
                     <strong class="ml-1">{{ user }}</strong>
                     </a>                    
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -78,17 +89,15 @@
                         Trang quản trị
                     </a>
                     <a class="dropdown-item" href="#" onclick="event.preventDefault();
+>>>>>>> 3e492c09904f342cb421e56b3c3e5926abf9d513
                                         document.getElementById('logout-form').submit();">
-                    <i class="zmdi mr-1 zmdi-square-down"></i>
-                    
-                    Logout
-                    </a>
-                    </div>
-                    </li>
-                    <script>
-                        
-                    </script>
-                    </ul>        
+                                    <i class="zmdi mr-1 zmdi-square-down"></i> Logout
+                                </a>
+                            </div>
+                        </li>
+                        <script>
+                        </script>
+                    </ul>
                     {% else %}
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
@@ -98,7 +107,7 @@
                             <a class="nav-link font-weight-bold" href="{% url 'login' %}">Đăng nhập</a>
                         </li>
                     </ul>
-                    {% endif%}          
+                    {% endif%}
                 </div>
             </div>
         </nav>
@@ -135,19 +144,10 @@
                                 <h5 class="text-primary">VỀ CHÚNG TÔI</h5>
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#">Giới thiệu</a>
+                                        <a href="{% url 'about' %}">Giới thiệu</a>
                                     </li>
                                     <li>
-                                        <a href="#">Tuyển dụng</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Báo chí</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Blog</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Liên hệ</a>
+                                        <a href="{% url 'contact' %}">Liên hệ</a>
                                     </li>
                                 </ul>
                             </div>
@@ -155,16 +155,7 @@
                                 <h5 class="text-primary">HỖ TRỢ</h5>
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#">Chi phí</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Điều khoản sử dụng</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Hướng dẫn ủng hộ</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">FAQs</a>
+                                        <a href="{% url 'faqs' %}">FAQs</a>
                                     </li>
                                 </ul>
                             </div>
