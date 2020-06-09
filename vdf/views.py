@@ -5,7 +5,9 @@ from django.urls import reverse
 
 # Create your views here.
 def index(request):
-    return render(request, "vdf/index.html")
+    if request.user.is_authenticated:
+        return render(request, "vdf/index.html", { "user": request.user.username} )
+    return render(request, "vdf/index.html", { "user" : ""})
 
 def about(request):
     return render(request, "vdf/about.html")
@@ -22,11 +24,13 @@ def explore_result(request):
 def thankyou(request):
     return render(request, "vdf/thankyou.html")
 def explore(request):
-    return render(request, "vdf/explore.html")
+    if request.user.is_authenticated:
+        return render(request, "vdf/explore.html", { "user": request.user.username} )
+    return render(request, "vdf/explore.html", { "user": ""})
 
 def login_view(request):
-    username = request.POST["username"]
-    password = request.POST["password"]
+    username = request.POST.get('username', '') #get username, if there's none, set default ''
+    password = request.POST.get('password', '') #get password, if there's none, set default ''
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
@@ -51,7 +55,7 @@ def taochiendich(request):
     if not request.user.is_authenticated:
         return render(request, "vdf/login.html", {"message": None})
     context = {
-        "user": request.user
+        "user": request.user.username
     }
     return render(request, "vdf/taochiendich.html", context)
 

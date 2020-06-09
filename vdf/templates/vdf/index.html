@@ -42,16 +42,16 @@
         }
     </style>
 {% endblock%}
-{% block session %}
+<!-- {% block session %}
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <a class="nav-link font-weight-bold text-primary" href="{% url 'register' %}">Tạo tài khoản</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link font-weight-bold" href="{% static 'vdf/login.html'%}">Đăng nhập</a>
+            <a class="nav-link font-weight-bold" href="{% url 'login' %}">Đăng nhập</a>
         </li>
     </ul>
-{% endblock %}
+{% endblock %} -->
 {% block body%}
     <section id="top-hero">
         <div class="container">
