@@ -23,10 +23,20 @@ def explore_result(request):
 
 def thankyou(request):
     return render(request, "vdf/thankyou.html")
+    
 def explore(request):
     if request.user.is_authenticated:
         return render(request, "vdf/explore.html", { "user": request.user.username} )
     return render(request, "vdf/explore.html", { "user": ""})
+
+def faq(request):
+    return render(request, "vdf/faq.html")
+
+def faqs(request):
+    return render(request, "vdf/faqs.html")
+
+def resetpassword(request):
+    return render(request, "vdf/resetpassword.html")        
 
 def login_view(request):
     username = request.POST.get('username', '') #get username, if there's none, set default ''
