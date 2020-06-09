@@ -76,7 +76,7 @@ def register(request):
 def taochiendich(request):
     if not request.user.is_authenticated:
         return render(request, "vdf/login.html", {"user": ""})
-    return render(request, "vdf/taochiendich.html", {"user": request.user.username})
+    return render(request, "vdf/taochiendich.html", { "user": request.user.username})
 
 
 def donate(request):
@@ -133,4 +133,4 @@ def checkAuthenticationThenRedirect(request, page_name):
     if request.user.is_authenticated:
         return render(request, page_name, {"user": request.user.username})
 
-    return render(request, page_name, {"user": ""})
+    return render(request, page_name, { "user": ""})
