@@ -26,7 +26,13 @@ def explore(request):
     return render(request, "vdf/explore.html")
 
 def faq(request):
-    return render(request, "vdf/faq.html")    
+    return render(request, "vdf/faq.html")
+
+def faqs(request):
+    return render(request, "vdf/faqs.html")
+
+def resetpassword(request):
+    return render(request, "vdf/resetpassword.html")        
 
 def login_view(request):
     username = request.POST["username"]
