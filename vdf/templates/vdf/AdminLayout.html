@@ -82,6 +82,11 @@
                                 <i class="fas fa-id-card"></i> Thông tin cá nhân
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'AdminChangePassword' %}">
+                                <i class="fas fa-id-card"></i> Thay đổi mật khẩu
+                            </a>
+                        </li>
 
                         <!-- Nav Item - Tables -->
 
@@ -93,14 +98,7 @@
                         </li>
 
                         <!-- Nav Item - Tables -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'logout' %}" onclick="event.preventDefault();
-                          document.getElementById(&#39;logout-form&#39;).submit();">
-                                <i class="fas fa-fw fa-sign-out-alt"></i>
-                                <span>Đăng xuất</span></a>
-                            <form id="logout-form" action="https://kindmate.net/logout" method="POST" style="display: none;">
-                                <input type="hidden" name="_token" value="yLfAYTIwaASns1n1VvG6SQgsafrp0b6zLOyilQsU"> </form>
-                        </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

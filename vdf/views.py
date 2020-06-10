@@ -1,9 +1,15 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import login, logout, authenticate
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
+<<<<<<< HEAD
 from django.db import models
 from .models import Campaign
+=======
+from .forms import AddCampaignForm
+from .models import UserDetail, Campaign, Donation
+from django.views.generic import TemplateView, ListView
+>>>>>>> 06e2534ed2e324e865464740b2407105f26af0af
 
 
 # Create your views here.
@@ -71,9 +77,7 @@ def register(request):
 
 
 def taochiendich(request):
-    if not request.user.is_authenticated:
-        return render(request, "vdf/login.html", {"user": ""})
-    return render(request, "vdf/taochiendich.html", { "user": request.user.username})
+    return checkAuthenticationThenRedirect(request, "vdf/taochiendich.html")
 
 
 def donate(request):
@@ -132,9 +136,49 @@ def contact(request):
 def checkAuthenticationThenRedirect(request, page_name):
     if request.user.is_authenticated:
         return render(request, page_name, { "user": request.user.username})
-    
     return render(request, page_name, { "user": ""})
 
+<<<<<<< HEAD
 # def queryCampaign(request):
 #     all_Cams = Campaign.object.all()
 #     return render(request, "vdf/supAdminCampaign.html", {'Campaigns': all_Cams})
+=======
+def AddCampaignProcess(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        form = AddCampaignForm(request.POST)
+        #print(request.FILES['coverImage'])     
+        print(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            print("is valid")
+            #process the data in form.cleaned_data as required
+            name = form.cleaned_data['name']
+            shortDescription = form.cleaned_data['shortDescription']
+            goal = form.cleaned_data['goal']
+            fullDescription = form.cleaned_data['fullDescription']
+            expiredDate = form.cleaned_data['expiredDate']
+            #coverImage = form.cleaned_data['coverImage']
+            ownerID = UserDetail.objects.get(id=request.user.id)
+            newCampaign = Campaign(
+                name=name, 
+                shortDescription=shortDescription, 
+                goal=goal, 
+                expiredDate=expiredDate, 
+                #coverImage=coverImage,
+                fullDescription=fullDescription, 
+                ownerID=ownerID)
+            
+            newCampaign.save()
+            #csrf_token = django.middleware.csrf.get_token(request)
+            # redirect to a new URL:
+            return render(None, 'vdf/thankyou.html', {"user": request.user.id})
+
+    # if a GET (or any other method) we'll create a blank form
+    # else:
+    #     form = AddCampaignForm()
+    #csrf_token = django.middleware.csrf.get_token(request)
+    #return render(None, 'vdf/taochiendich.html', {"user": request.user.id})
+    return redirect('/taochiendich')
+
+>>>>>>> 06e2534ed2e324e865464740b2407105f26af0af
