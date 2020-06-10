@@ -133,29 +133,31 @@ def checkAuthenticationThenRedirect(request, page_name):
 def AddCampaignProcess(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        form = AddCampaignForm(request.POST)
+        form = AddCampaignForm(request.POST, request.FILES)
         #print(request.FILES['coverImage'])     
         print(request.POST)
+        print(request.FILES)
+        print(form)
         # check whether it's valid:
         if form.is_valid():
             print("is valid")
-            #process the data in form.cleaned_data as required
+            # process the data in form.cleaned_data as required
             name = form.cleaned_data['name']
             shortDescription = form.cleaned_data['shortDescription']
             goal = form.cleaned_data['goal']
             fullDescription = form.cleaned_data['fullDescription']
             expiredDate = form.cleaned_data['expiredDate']
-            #coverImage = form.cleaned_data['coverImage']
+            coverImage = form.cleaned_data['coverImage']
             ownerID = UserDetail.objects.get(id=request.user.id)
             newCampaign = Campaign(
-                name=name, 
-                shortDescription=shortDescription, 
-                goal=goal, 
-                expiredDate=expiredDate, 
-                #coverImage=coverImage,
-                fullDescription=fullDescription, 
+                name=name,
+                shortDescription=shortDescription,
+                goal=goal,
+                expiredDate=expiredDate,
+                coverImage=coverImage,
+                fullDescription=fullDescription,
                 ownerID=ownerID)
-            
+
             newCampaign.save()
             #csrf_token = django.middleware.csrf.get_token(request)
             # redirect to a new URL:

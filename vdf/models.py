@@ -37,7 +37,7 @@ class Campaign(models.Model):
     goal = models.IntegerField()
     expiredDate = models.DateField()
     createdDate = models.DateField(auto_now_add=True)
-    coverImage = models.ImageField(upload_to='vdf/static/vdf/img')
+    coverImage = models.ImageField(upload_to='img/')
     fullDescription = models.TextField()
     ownerID = models.ForeignKey(UserDetail, on_delete=models.CASCADE)
 
