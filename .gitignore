@@ -1,4 +1,4 @@
-vscode/
+.vscode/
 vdf/_pycache_
 vietnamdonationfoundation/_pycache_
 db.sqlite3
