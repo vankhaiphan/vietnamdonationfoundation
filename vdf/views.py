@@ -2,14 +2,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render, redirect
 from django.urls import reverse
-<<<<<<< HEAD
-from django.db import models
-from .models import Campaign
-=======
 from .forms import AddCampaignForm
 from .models import UserDetail, Campaign, Donation
 from django.views.generic import TemplateView, ListView
->>>>>>> 06e2534ed2e324e865464740b2407105f26af0af
 
 
 # Create your views here.
@@ -117,10 +112,7 @@ def supAdminEdit(request):
 
 
 def supAdminCampaign(request):
-    all_Cams = Campaign.object.all()
-    #return checkAuthenticationThenRedirect(request, "vdf/supAdminCampaign.html", {'Campaigns': all_Cams})
-    return render(request, "vdf/supAdminCampaign.html", {'Campaigns': all_Cams})
-
+    return checkAuthenticationThenRedirect(request, "vdf/supAdminCampaign.html")
 
 
 def supAdminadduser(request):
@@ -138,19 +130,14 @@ def checkAuthenticationThenRedirect(request, page_name):
         return render(request, page_name, { "user": request.user.username})
     return render(request, page_name, { "user": ""})
 
-<<<<<<< HEAD
-# def queryCampaign(request):
-#     all_Cams = Campaign.object.all()
-#     return render(request, "vdf/supAdminCampaign.html", {'Campaigns': all_Cams})
-=======
 def AddCampaignProcess(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         form = AddCampaignForm(request.POST, request.FILES)
         #print(request.FILES['coverImage'])     
-        print(request.POST)
-        print(request.FILES)
-        print(form)
+        # print(request.POST)
+        # print(request.FILES)
+        # print(form)
         # check whether it's valid:
         if form.is_valid():
             print("is valid")
@@ -183,4 +170,3 @@ def AddCampaignProcess(request):
     #return render(None, 'vdf/taochiendich.html', {"user": request.user.id})
     return redirect('/taochiendich')
 
->>>>>>> 06e2534ed2e324e865464740b2407105f26af0af
