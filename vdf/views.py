@@ -2,6 +2,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render
 from django.urls import reverse
+from django.db import models
+from .models import Campaign
 
 
 # Create your views here.
@@ -111,7 +113,10 @@ def supAdminEdit(request):
 
 
 def supAdminCampaign(request):
-    return checkAuthenticationThenRedirect(request, "vdf/supAdminCampaign.html")
+    all_Cams = Campaign.object.all()
+    #return checkAuthenticationThenRedirect(request, "vdf/supAdminCampaign.html", {'Campaigns': all_Cams})
+    return render(request, "vdf/supAdminCampaign.html", {'Campaigns': all_Cams})
+
 
 
 def supAdminadduser(request):
@@ -129,3 +134,7 @@ def checkAuthenticationThenRedirect(request, page_name):
         return render(request, page_name, { "user": request.user.username})
     
     return render(request, page_name, { "user": ""})
+
+# def queryCampaign(request):
+#     all_Cams = Campaign.object.all()
+#     return render(request, "vdf/supAdminCampaign.html", {'Campaigns': all_Cams})

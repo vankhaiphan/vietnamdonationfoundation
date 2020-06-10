@@ -57,6 +57,16 @@
                 </tr>
             </thead>
             <tbody id="data-body">
+                {% for campaign in Campaigns %}
+                <tr>
+                    <th class="border-bottom-0">{{ campaign.name }}</th>
+                    <th class="border-bottom-0">{{ campaign.expiredDate }}</th>
+                    <th class="border-bottom-0">Status</th>
+                    <th class="border-bottom-0">{{ campaign.goal }}</th>
+                    <th class="border-bottom-0">Đạt được</th>
+                    <th class="border-bottom-0">Hành động</th>
+                </tr>
+                {% endfor %}
             </tbody>
         </table>
 
