@@ -43,9 +43,6 @@ def faqs(request):
 def resetpassword(request):
     return checkAuthenticationThenRedirect(request, "vdf/resetpassword.html")        
 
-def contact(request):
-    return checkAuthenticationThenRedirect(request, "vdf/contact.html")
-
 
 def login_view(request):
     username = request.POST.get('username', '') #get username, if there's none, set default ''
@@ -123,6 +120,9 @@ def supAdminadduser(request):
 
 def Feedback(request):
     return checkAuthenticationThenRedirect(request, "vdf/Feedback.html")
+
+def contact(request):
+    return checkAuthenticationThenRedirect(request, "vdf/contact.html")
 
 def checkAuthenticationThenRedirect(request, page_name):
     if request.user.is_authenticated:
