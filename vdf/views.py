@@ -121,6 +121,9 @@ def supAdminadduser(request):
 def Feedback(request):
     return checkAuthenticationThenRedirect(request, "vdf/Feedback.html")
 
+def contact(request):
+    return checkAuthenticationThenRedirect(request, "vdf/contact.html")
+
 def checkAuthenticationThenRedirect(request, page_name):
     if request.user.is_authenticated:
         return render(request, page_name, { "user": request.user.username})
