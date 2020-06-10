@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import AddCampaignForm
 from .models import UserDetail, Campaign, Donation
+from django.views.generic import TemplateView, ListView
 
 
 # Create your views here.
