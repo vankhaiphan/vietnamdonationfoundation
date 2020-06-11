@@ -31,4 +31,5 @@ urlpatterns = [
     path("supadmin/feedback",views.Feedback,name="Feedback"),
     path("AddCampaign",views.AddCampaignProcess, name="AddCampaignProcess")
     # path("<str:name>", views.greet, name="greet")
+    # path("QueryName", views.)
 ]

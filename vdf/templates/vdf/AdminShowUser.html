@@ -28,16 +28,16 @@
                             <h3 class="profile-username text-center mb-5">Avatar</h3>
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
-                                    <b>Tên người tạo chiến dịch:</b> <a class="float-right">Lê Minh Châu</a>
+                                    <b>Tên người tạo chiến dịch:</b> <a class="float-right">{{user.username}}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Email người tạo:</b> <a class="float-right">minhchaumvp@gmail.com</a>
+                                    <b>Email người tạo:</b> <a class="float-right">{{user.email}}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Số điện thoại người tạo:</b> <a class="float-right">0702516466</a>
+                                    <b>Số điện thoại người tạo:</b> <a class="float-right">{{user.phoneNumber}}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Địa chỉ nhà riêng:</b> <a class="float-right"></a>
+                                    <b>Địa chỉ nhà riêng:</b> <a class="float-right">{{user.address}}</a>
                                 </li>
                                 <hr>
                                 <a href="{% url 'adminUserEdit' %}" class="btn btn-danger btn-block"><b>Cập nhật thông tin cá nhân</b></a>
