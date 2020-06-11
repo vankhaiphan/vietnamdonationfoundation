@@ -9,6 +9,7 @@ from django.views.generic import TemplateView, ListView
 
 # Create your views here.
 def index(request):
+    print(Campaign.objects.all())
     return checkAuthenticationThenRedirect(request, "vdf/index.html")
 
 
