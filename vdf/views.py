@@ -85,7 +85,17 @@ def donate(request):
 
 
 def AdminCampaign(request):
-    return checkAuthenticationThenRedirect(request, "vdf/AdminCampaign.html")
+    # Can phan quyen cho ni
+    # if request.user.is_authenticated:
+    #     return render(request, page_name, { "user": request.user.username})
+    # return render(request, page_name, { "user": ""})
+    if request.user.is_authenticated:
+        if request.user.is_superuser:
+            return render(request, 'vdf/supAdminShowDetails.html', {"user": request.user})
+        else:
+            return render(request, 'vdf/AdminShowUser.html', {"user": request.user})
+    return render(request, 'vdf/supAdminShowDetails.html', {"user": ""})
+    # return checkAuthenticationThenRedirect(request, "vdf/AdminCampaign.html")
 
 
 def AdminShowUser(request):
