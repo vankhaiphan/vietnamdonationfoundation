@@ -1,9 +1,13 @@
 {% extends 'vdf/layout.html'%}
 {% load static %}
+{% load humanize%}
+{% load mathfilters%}
 
 {% block head%}
     <title>VDF - Nền tảng gây quỹ dễ dàng nhanh chóng</title>
 {% endblock %}
+
+
 {% block body %}
 <section class="my-2 pb-4 container">
     <h2 class="mb-4">Khám phá chiến dịch</h2>
@@ -13,7 +17,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <div class="input-group">
-                            <input id="name" class="form-control" placeholder="Nhập từ khóa" name="name" type="text" value="">
+                            <input id="name" class="form-control" placeholder="Nhập từ khóa" name="name_" type="text" value="{{request.GET.name_}}">
                             <div class="input-group-append">
                                 <span class="input-group-text">
                                     <i class="zmdi zmdi-search zmdi-hc-lg"></i> 
@@ -26,11 +30,11 @@
         </form>
     </div>
     <div class="row list-campaigns">
-        {% for i in '01234567'|make_list %}
+        {% for campaign in campaigns %}
             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                 <article class="card campaign-style2 mb-4">
                 <div class="embed-responsive embed-responsive-16by9">
-                <img class="embed-responsive-item" src="../static/vdf/img/cover.jpg"/>
+                <img class="embed-responsive-item" src="../static/vdf/{{campaign.coverImage}}"/>
                 </div>
                 <div class="card-body pb-3  d-flex flex-column align-items-start">
                 <div class="campaign-main-info mb-auto w-100">
@@ -39,11 +43,11 @@
                                 src="https://kindmate.net/Uploads/2020/05/25/5ecbc9ad72073-logo-vnsound-music--white-.jpg"
                                 alt="vnsoundmusic">
                                     </div>
-                    <a href="{%url 'project_detail'%}">
-                        <h6 class="card-title mt-3 mb-2 text-body ">DEMO Project 01</h6>
+                    <a href="{{ campaign.get_absolute_url }}">
+                        <h6 class="card-title mt-3 mb-2 text-body ">{{campaign.name}}</h6>
                     </a>
                     <div class="card-text text-secondary">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas, voluptates nihil accusantium beatae repellendus aspernatur expedita magnam aliquid adipisci eius delectus alias ipsam! Repellendus consequatur quaerat amet expedita vel debitis.
+                       {{campaign.shortDescription}}
                     </div>
                     <div class="card-text card-author mt-1">
                         <span class="text-secondary">bởi</span>
@@ -65,12 +69,12 @@
                 <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top w-100">
                     <div class="process-style d-flex justify-content-between align-items-center">
                         <div
-                            class="progress-circle progress-0"></div>
-                        <span class="campaign-percent-text">0%</span>
+                            class="progress-circle progress-{{ 100000|div:campaign.goal|mul:100|floatformat:0 }}"></div>
+                        <span class="campaign-percent-text">{{ 100000|div:campaign.goal|mul:100|floatformat:2 }}%</span>
                     </div>
                     <div class="campaign-info text-right">
                         <div class="campaign-money">
-                            <span>40,000,000 đ</span>
+                            <span>{{ campaign.goal|intcomma }} đ</span>
                         </div>
                         <div class="campaign-deadline">
                             <span class="small text-secondary">
@@ -82,58 +86,45 @@
                 </div>
                 </article>
                 </div>
-            {% endfor %}
+        {% endfor %}
     </div>
-<div class="my-3">
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center" role="navigation">
-            
-                            <li class="page-item disabled" aria-disabled="true" aria-label="&laquo; Previous">
-                    <span class="page-link" aria-hidden="true">
-                        <i class="zmdi zmdi-chevron-left zmdi-hc-lg"></i>
-                        <i class="fa fa-chevron-left"></i>
-                    </span>
-                </li>
-            
-            
-                            
-                
-                
-                                                                                        <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
-                                                                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                                                                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                                                                                <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                                                                                <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                                                                                <li class="page-item"><a class="page-link" href="#">8</a></li>
-                                                                                        
-                                    <li class="page-item disabled" aria-disabled="true"><span class="page-link">...</span></li>
-                
-                
-                                            
-                
-                
-                                                                                        <li class="page-item"><a class="page-link" href="#">43</a></li>
-                                                                                                <li class="page-item"><a class="page-link" href="#">44</a></li>
-                                                                        
-            
-                            <li class="page-item">
-                    <a class="page-link" href="#" rel="next" aria-label="Next &raquo;">
-                        <i class="zmdi zmdi-chevron-right zmdi-hc-lg"></i>
-                        <i class="fa fa-chevron-right"></i>
-                    </a>
-                </li>
-                    </ul>
-    </nav>
+    <div class="my-3">
+        <nav aria-label="Page navigation">
+            {% if campaigns.has_other_pages %}
+                <ul class="pagination justify-content-center" role="navigation">
+                    {% if campaigns.has_previous %}
+                        <li><a href="?page={{ campaigns.previous_page_number }}">&laquo;</a></li>
+                    {% else %}
+                        <li class="page-item disabled" aria-disabled="true" aria-label="&laquo; Previous">
+                            <span class="page-link" aria-hidden="true">
+                                <i class="zmdi zmdi-chevron-left zmdi-hc-lg"></i>
+                                <i class="fa fa-chevron-left"></i>
+                            </span>
+                        </li>
+                    {% endif %}
 
-</div>
+                    {% for i in campaigns.paginator.page_range %}
+                        {% if campaigns.number == i %}
+                            <li class="page-item active" aria-current="page"><span class="page-link">{{i}}</span></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if campaigns.has_next %}
+                    <a class="page-link" href="?page={{ campaigns.next_page_number }}" rel="next" aria-label="Next &raquo;">
+                            <i class="zmdi zmdi-chevron-right zmdi-hc-lg"></i>
+                            <i class="fa fa-chevron-right"></i>
+                    </a>
+                    {% else %}
+                        <li class="disabled"><span>&raquo;</span></li>
+                    {% endif %}
+                </ul>
+            {% endif %}
+        </nav>
+    </div>
 </section>
 <section id="introduce" class="py-5 bg-light">
     <div class="container">
-        
-        
-
                 <div class="bottom-introduce mt-4 row">
             <div class="text-center py-2 col-md-8 offset-md-2">
                 <h2 class="mb-5">Mọi cá nhân, tổ chức đều có thể tự tạo một trang web gây quỹ với VDF</h2>
@@ -159,8 +150,25 @@
                 </div>
             </div>
         </div>
-            </div>
+    </div>
 </section>
-{% endblock %}  
+{% endblock %}
 
-        
+
+<!--                <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--                <li class="page-item"><a class="page-link" href="#">4</a></li>-->
+<!--                <li class="page-item"><a class="page-link" href="#">5</a></li>-->
+<!--                <li class="page-item"><a class="page-link" href="#">6</a></li>-->
+<!--                <li class="page-item"><a class="page-link" href="#">7</a></li>-->
+<!--                <li class="page-item"><a class="page-link" href="#">8</a></li>-->
+<!--            <li class="page-item disabled" aria-disabled="true"><span class="page-link">...</span></li>-->
+<!--            <li class="page-item"><a class="page-link" href="#">43</a></li>-->
+<!--            <li class="page-item"><a class="page-link" href="#">44</a></li>-->
+<!--            <li class="page-item">-->
+<!--                    <a class="page-link" href="#" rel="next" aria-label="Next &raquo;">-->
+<!--                        <i class="zmdi zmdi-chevron-right zmdi-hc-lg"></i>-->
+<!--                        <i class="fa fa-chevron-right"></i>-->
+<!--                    </a>-->
+<!--            </li>-->
+
+

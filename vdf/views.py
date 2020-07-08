@@ -5,11 +5,29 @@ from django.urls import reverse
 from .forms import AddCampaignForm
 from .models import UserDetail, Campaign, Donation
 from django.views.generic import TemplateView, ListView
-
+from delta import html
+import json
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models import Q
 
 # Create your views here.
 def index(request):
-    return checkAuthenticationThenRedirect(request, "vdf/index.html")
+    # Cai thang index nay khong the giong nhu thang cu duoc
+    # Load du lieu cho campaign, bao gom: source anh, source nha tai tro (cai ni minh chua co), project detail uri
+    # Ten chien dich, vai chu dau tien ve mo ta du an, ten chu chien dich, so tien chien dich, con lai bao nhieu ngay,
+    # phan tram hoan thanh chien dich (tuc la can phai co cai so tien da gay quy duoc,cai du lieu con thieu nhieu qua ~~)
+    data = Campaign.objects.all()[:8]
+    # author = UserDetail.objects.filter(ownerID=data)
+    campaigns = {
+        "campaigns_data": data,
+        # "authors": author
+    }
+
+    if request.user.is_authenticated:
+        return render(request, "vdf/index.html", { "user": request.user.username, "campaigns": campaigns})
+    return render(request, "vdf/index.html", { "user": "", "campaigns": campaigns})
+
+    # return checkAuthenticationThenRedirect(request, "vdf/index.html")
 
 
 def about(request):
@@ -33,11 +51,35 @@ def thankyou(request):
 
 
 def explore(request):
-    return checkAuthenticationThenRedirect(request, "vdf/explore.html")
+    # return checkAuthenticationThenRedirect(request, "vdf/explore.html")
+    campaign_list = Campaign.objects.all()
+    # Dung de rearch
+    # queryset_list = Campaign.objects.active()
+    query = request.GET.get("name_")
+    if query:
+        campaign_list = campaign_list.filter(
+            Q(name__icontains=query) |
+            Q(shortDescription__icontains=query) |
+            Q(fullDescription__icontains=query)
+        ).distinct()
+
+    page = request.GET.get('page', 1)
+    paginator = Paginator(campaign_list, 8)
+    try:
+        campaigns = paginator.page(page)
+    except PageNotAnInteger:
+        campaigns = paginator.page(1)
+    except EmptyPage:
+        campaigns = paginator.page(paginator.num_pages)
+
+    if request.user.is_authenticated:
+        return render(request, 'vdf/explore.html', {"user": request.user.username, "campaigns": campaigns})
+    return render(request, 'vdf/explore.html', {"user": "", "campaigns": campaigns})
 
 
 def faq(request):
     return checkAuthenticationThenRedirect(request, "vdf/faq.html")
+
 
 def faqs(request):
     return checkAuthenticationThenRedirect(request, "vdf/faqs.html")
@@ -64,7 +106,28 @@ def logout_view(request):
 
 
 def project_detail(request):
-    return checkAuthenticationThenRedirect(request, "vdf/project_detail.html")
+    # Dua vo cai id project lay thong tin cua no
+    # project = Campaign.objects.get(pk=project_id)
+    project = Campaign.objects.get(id=3)
+    if request.user.is_authenticated:
+        return render(request, "vdf/project_detail.html", { "user": request.user.username, "project": project})
+    return render(request, "vdf/project_detail.html", { "user": "", "project": project})
+
+    # return checkAuthenticationThenRedirect(request, "vdf/project_detail.html")
+
+
+def dynamic_lookup_view(request, my_id):
+    project = Campaign.objects.get(id=my_id)
+    if request.user.is_authenticated:
+        return render(request, "vdf/project_detail.html", {"user": request.user.username, "project": project})
+    return render(request, "vdf/project_detail.html", {"user": "", "project": project})
+
+
+def donate_campaign(request, my_id):
+    project = Campaign.objects.get(id=my_id)
+    if request.user.is_authenticated:
+        return render(request, "vdf/explore.html", {"user": request.user.username, "project": project})
+    return render(request, "vdf/explore.html", {"user": "", "project": project})
 
 
 def register(request):
@@ -72,8 +135,10 @@ def register(request):
 
 
 def taochiendich(request):
-    return checkAuthenticationThenRedirect(request, "vdf/taochiendich.html")
-
+    # return checkAuthenticationThenRedirect(request, "vdf/taochiendich.html")
+    if request.user.is_authenticated:
+        return render(request, 'vdf/taochiendich.html', { "user": request.user.username})
+    return render(request, 'vdf/login.html', { "user": ""})
 
 def donate(request):
     return checkAuthenticationThenRedirect(request, "vdf/donate.html")
@@ -92,7 +157,7 @@ def AdminCampaign(request):
         if request.user.is_superuser:
             return render(request, 'vdf/supAdminShowDetails.html', {"user": request.user})
         else:
-            return render(request, 'vdf/AdminShowUser.html', {"user": request.user})
+            return render(request, 'vdf/AdminCampaign.html', {"user": request.user})
     return render(request, 'vdf/supAdminShowDetails.html', {"user": ""})
     # return checkAuthenticationThenRedirect(request, "vdf/AdminCampaign.html")
 
@@ -155,7 +220,8 @@ def AddCampaignProcess(request):
             name = form.cleaned_data['name']
             shortDescription = form.cleaned_data['shortDescription']
             goal = form.cleaned_data['goal']
-            fullDescription = form.cleaned_data['fullDescription']
+            a = json.loads(form.cleaned_data['fullDescription'])
+            fullDescription =html.render(a["ops"])
             expiredDate = form.cleaned_data['expiredDate']
             coverImage = form.cleaned_data['coverImage']
             ownerID = UserDetail.objects.get(id=request.user.id)
@@ -179,4 +245,12 @@ def AddCampaignProcess(request):
     #csrf_token = django.middleware.csrf.get_token(request)
     #return render(None, 'vdf/taochiendich.html', {"user": request.user.id})
     return redirect('/taochiendich')
+
+
+# Tao them
+def sortCampaign(request):
+    return checkAuthenticationThenRedirect(request, "vdf/sortedPage.html")
+
+
+# Load du lieu tu trong database roi do vao trong thang trang chu
 

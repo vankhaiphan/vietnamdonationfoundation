@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+# from django.conf import settings
+# from django.conf.urls.static import static
 
 urlpatterns = [
     path("", views.index, name="index"),
@@ -29,7 +31,13 @@ urlpatterns = [
     path("supadmin/campaign",views.supAdminCampaign,name="supAdminCampaign"),
     path("supadmin/supAdminadduser",views.supAdminadduser,name="supAdminadduser"),
     path("supadmin/feedback",views.Feedback,name="Feedback"),
-    path("AddCampaign",views.AddCampaignProcess, name="AddCampaignProcess")
+    path("AddCampaign",views.AddCampaignProcess, name="AddCampaignProcess"),
     # path("<str:name>", views.greet, name="greet")
     # path("QueryName", views.)
+    path("admin/sortedCampaign", views.sortCampaign, name="sortCampaign"),
+
+    # Cai tren bi loi nen minh phai lam cai ni
+    # path("project_detail/<int:my_id>/", views.dynamic_lookup_view, name="project-detail")
+    path("/<int:my_id>/", views.dynamic_lookup_view, name="project-detail"),
+    path("/donate/<int:my_id>/", views.donate_campaign, name="donate-campaign")
 ]

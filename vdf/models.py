@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 # class User(models.Model):
@@ -40,6 +41,11 @@ class Campaign(models.Model):
     coverImage = models.ImageField(upload_to='img/')
     fullDescription = models.TextField()
     ownerID = models.ForeignKey(UserDetail, on_delete=models.CASCADE)
+
+    def get_absolute_url(self, type="detail"):
+        if type == "detail":
+            return reverse("project-detail", kwargs={"my_id": self.id})
+        return reverse("donate-campaign", kwargs={"my_id": self.id})
 
     def __str__(self):
         return self.name

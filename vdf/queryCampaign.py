@@ -9,3 +9,4 @@ campainExDate = Campaign.expiredDate
 campainFullD = Campaign.fullDescription
 
 camps = Campaign.object.all()
+
