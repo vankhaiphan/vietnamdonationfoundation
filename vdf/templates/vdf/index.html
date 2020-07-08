@@ -1,5 +1,7 @@
 {% extends 'vdf/layout.html'%}
 {% load static %}
+{% load humanize%}
+{% load mathfilters %}
 
 {% block head%}
     <title>Vietnam Donation Foundation</title>    
@@ -125,11 +127,12 @@
     <section id="list-campaign" class="pb-5">
     <div class="container">
         <div class="row list-campaigns">
-            {% for i in '01234567'|make_list %}
+            {% for campaign in campaigns.campaigns_data %}
             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+
                 <article class="card campaign-style2 mb-4">
                 <div class="embed-responsive embed-responsive-16by9">
-                <img class="embed-responsive-item" src="../static/vdf/img/cover.jpg"/>
+                <img class="embed-responsive-item" src="../static/vdf/{{campaign.coverImage}}"/>
                 </div>
                 <div class="card-body pb-3  d-flex flex-column align-items-start">
                 <div class="campaign-main-info mb-auto w-100">
@@ -138,16 +141,16 @@
                                 src="../static/vdf/img/logo-vnsound-music-white.jpg"
                                 alt="vnsoundmusic">
                                     </div>
-                    <a href="{%url 'project_detail'%}">
-                        <h6 class="card-title mt-3 mb-2 text-body ">DEMO Project 01</h6>
+                    <a href="{{ campaign.get_absolute_url }}">
+                        <h6 class="card-title mt-3 mb-2 text-body ">{{campaign.name}}</h6>
                     </a>
                     <div class="card-text text-secondary">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas, voluptates nihil accusantium beatae repellendus aspernatur expedita magnam aliquid adipisci eius delectus alias ipsam! Repellendus consequatur quaerat amet expedita vel debitis.
+                        {{campaign.shortDescription}}
                     </div>
                     <div class="card-text card-author mt-1">
                         <span class="text-secondary">bởi</span>
                         <a href="javascript:void(0)"
-                            class="campaign-author-link">16pfiev3</a>
+                            class="campaign-author-link">{{campaign}}</a>
                     </div>
                     <ul class="tags-box">
                         <li>
@@ -155,7 +158,7 @@
                         </li>
                         <li>
                             <a href="#">Trẻ em</a>
-                        </li>
+                        </li>16pfiev3
                         <li>
                             <a href="#">Mùa đông</a>
                         </li>
@@ -164,12 +167,12 @@
                 <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top w-100">
                     <div class="process-style d-flex justify-content-between align-items-center">
                         <div
-                            class="progress-circle progress-0"></div>
-                        <span class="campaign-percent-text">0%</span>
+                            class="progress-circle progress-{{ 100000|div:campaign.goal|mul:100|floatformat:0 }}"></div>
+                        <span class="campaign-percent-text">{{ 100000|div:campaign.goal|mul:100|floatformat:2 }}%</span>
                     </div>
                     <div class="campaign-info text-right">
                         <div class="campaign-money">
-                            <span>40,000,000 đ</span>
+                            <span>{{campaign.goal}} đ</span>
                         </div>
                         <div class="campaign-deadline">
                             <span class="small text-secondary">
@@ -186,7 +189,7 @@
     
     </div>
         <div class="text-center mt-3">
-            <a href="#" class="btn btn-danger btn-lg">Xem tất cả chiến dịch</a>
+            <a href="{% url 'explore' %}" class="btn btn-danger btn-lg">Xem tất cả chiến dịch</a>
         </div>
     </div>
     </section>
