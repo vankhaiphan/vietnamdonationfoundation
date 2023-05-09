@@ -8,5 +8,5 @@ lxml==4.9.1
 Pillow==9.3.0
 pytz==2020.1
 quill-delta==1.0.1
-sqlparse==0.3.1
+sqlparse==0.4.4
 wincertstore==0.2
